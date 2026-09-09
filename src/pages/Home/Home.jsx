@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../../data/projects'
 import { services } from '../../data/services'
+import Geography from '../../components/Geography/Geography'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import Button from '../../components/Button/Button'
 
@@ -327,7 +328,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      {/* География */}
+      <Geography />
       {/* Featured projects */}
       <section className="py-20 sm:py-28 px-5 sm:px-6 md:px-12 bg-ink">
         <div className="max-w-7xl mx-auto">
