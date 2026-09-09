@@ -5,6 +5,7 @@ import { services } from '../../data/services'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import Button from '../../components/Button/Button'
 import Geography from '../../components/Geography/Geography'
+import Fleet from "../../components/Fleet/Fleet.jsx";
 
 export default function Home() {
   const horizontalTrackRef = useRef(null)
@@ -295,6 +296,7 @@ export default function Home() {
 
       {/* География */}
       <Geography />
+      <Fleet />
 
       {/* Featured projects */}
       <section className="py-20 sm:py-28 px-5 sm:px-6 md:px-12 bg-ink">
