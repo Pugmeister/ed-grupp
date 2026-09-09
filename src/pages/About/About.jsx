@@ -19,7 +19,7 @@ export default function About() {
             { value: '20+', label: 'Лет на рынке' },
             { value: '1млн+', label: 'м² построено' },
             { value: '20+', label: 'Объектов' },
-            { value: '7', label: 'Регионов' },
+            { value: '7+', label: 'Регионов' },
           ].map((item) => (
             <div key={item.label} className="text-center">
               <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-accent">
