@@ -78,7 +78,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#" className="hover:text-paper transition-colors interactive-hover">
-                  Instagram
+                  Max
                 </a>
               </li>
             </ul>
