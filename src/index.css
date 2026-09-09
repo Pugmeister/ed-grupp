@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== BASE ========== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background-color: #0A0A0A;
+  color: #F4F4F0;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Курсор только на десктопе с мышью */
+@media (min-width: 901px) and (pointer: fine) {
+  body { cursor: none; }
+  a, button { cursor: none; }
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #F4F4F0;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.2s;
+  mix-blend-mode: difference;
+  opacity: 1;
+}
+.custom-cursor.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: #F4F4F0;
+  border-color: transparent;
+}
+@media (max-width: 900px), (pointer: coarse) {
+  .custom-cursor { display: none !important; }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Вертикальный текст — на мобиле делаем обычным */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+@media (max-width: 767px) {
+  .vertical-text {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+  }
+}
+
+.parallax-img { will-change: transform; }
+
+/* ========== HERO ========== */
+.hero-title {
+  font-size: clamp(2.75rem, 13vw, 11rem);
+  line-height: 0.82;
+}
+
+/* ========== EDITORIAL ========== */
+.section-num-bg {
+  font-size: clamp(8rem, 40vw, 28rem);
+}
+.block-title {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 0.9;
+}
+.block-num {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+}
+
+/* ========== HORIZONTAL PROCESS ========== */
+.horizontal-wrapper {
+  height: 350vh;
+  position: relative;
+}
+.horizontal-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.horizontal-track {
+  display: flex;
+  gap: 4vw;
+  padding: 0 8vw;
+  will-change: transform;
+}
+.process-card {
+  flex-shrink: 0;
+  width: min(55vw, 720px);
+  height: 65vh;
+  min-height: 380px;
+}
+.process-heading {
+  font-size: clamp(1.75rem, 4vw, 3.75rem);
+}
+.process-num {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+/* ========== MEGA CTA ========== */
+.cta-title {
+  font-size: clamp(2.5rem, 12vw, 9rem);
+  line-height: 0.88;
+}
+
+/* ========== TABLET ========== */
+@media (max-width: 1024px) {
+  .process-card {
+    width: min(65vw, 560px);
+    height: 58vh;
+    min-height: 360px;
+  }
+  .horizontal-wrapper { height: 320vh; }
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 767px) {
+  .horizontal-wrapper { height: 260vh; }
+  .horizontal-track {
+    gap: 5vw;
+    padding: 0 5vw;
+  }
+  .process-card {
+    width: 82vw;
+    height: 52vh;
+    min-height: 320px;
+  }
+  .horizontal-sticky {
+    align-items: flex-end;
+    padding-bottom: 8vh;
+  }
+  .section-num-bg { opacity: 0.06; }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 380px) {
+  .hero-title { font-size: 2.4rem; }
+  .block-title { font-size: 2.1rem; }
+  .cta-title { font-size: 2.1rem; }
+  .process-card {
+    width: 88vw;
+    min-height: 280px;
+    height: 48vh;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .horizontal-wrapper { height: 400vh; }
+  .process-card {
+    height: 75vh;
+    min-height: 240px;
+    width: min(50vw, 480px);
+  }
+}
+
+.mega-cta { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.mega-cta:hover {
+  background-color: #F4F4F0;
+  color: #0A0A0A;
+}
+.mega-cta:hover .cta-arrow {
+  transform: translate(10px, 0) scale(1.15);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img { transform: none !important; }
+  .horizontal-track { transition: none; }
+  [class*="animate-fade"] { animation: none !important; opacity: 0.45 !important; }
+  [class*="animate-fade"]:first-of-type { opacity: 0.7 !important; }
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+}
