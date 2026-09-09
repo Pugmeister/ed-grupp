@@ -5,7 +5,6 @@ const footerLinks = [
   { to: '/services', label: 'Услуги' },
   { to: '/about', label: 'О компании' },
   { to: '/news', label: 'Новости' },
-  { to: '/career', label: 'Карьера' },
   { to: '/contacts', label: 'Контакты' },
 ]
 

@@ -10,7 +10,6 @@ import Service from './pages/Service/Service'
 import About from './pages/About/About'
 import News from './pages/News/News'
 import Article from './pages/Article/Article'
-import Career from './pages/Career/Career'
 import Contacts from './pages/Contacts/Contacts'
 import ScrollToTop from './components/ScrollToTop'
 
