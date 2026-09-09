@@ -16,10 +16,10 @@ export default function About() {
         {/* Key numbers placeholder */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 py-12 border-y border-white/10">
           {[
-            { value: '[ЦИФРА]', label: 'Лет на рынке' },
-            { value: '[ЦИФРА]', label: 'м² построено' },
-            { value: '[ЦИФРА]', label: 'Объектов' },
-            { value: '[ЦИФРА]', label: 'Регионов' },
+            { value: '20+', label: 'Лет на рынке' },
+            { value: '1млн+', label: 'м² построено' },
+            { value: '20+', label: 'Объектов' },
+            { value: '7', label: 'Регионов' },
           ].map((item) => (
             <div key={item.label} className="text-center">
               <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-accent">
