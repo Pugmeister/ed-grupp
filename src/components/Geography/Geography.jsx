@@ -199,7 +199,7 @@ export default function Geography() {
               </svg>
 
               {active && (
-                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[280px] bg-ink/95 border border-white/10 p-5 backdrop-blur-md z-20 transition-all duration-500">
+                <div className="absolute bottom-4 right-4 max-w-[220px] sm:bottom-6 sm:right-6 sm:max-w-[280px] bg-ink/95 border border-white/10 p-5 backdrop-blur-md z-20 transition-all duration-500">
                   <div className="text-[10px] tracking-[0.2em] uppercase text-accent mb-1.5">
                     Регион
                   </div>
