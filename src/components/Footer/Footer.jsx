@@ -63,7 +63,7 @@ export default function Footer() {
                   info@edgrupp.ru
                 </a>
               </li>
-              <li className="text-gray-500 pt-1">[АДРЕС]</li>
+              <li className="text-gray-500 pt-1">РФ, 350042, г. Краснодар, ул. МОПР, д. 18, этаж 3, пом. 6</li>
             </ul>
           </div>
 
