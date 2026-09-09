@@ -1,3 +1,5 @@
+import { img } from '../utils/asset'
+
 export const projects = [
   {
     id: 1,
@@ -9,11 +11,11 @@ export const projects = [
     status: 'Реализован',
     year: '[ГОД]',
     description: '[ОПИСАНИЕ] Крупный логистический комплекс с современной инфраструктурой и удобной транспортной доступностью.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80',
+    image: img('images/logistics.jpg'),
     gallery: [
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-      'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=800&q=80',
+      img('images/logistics.jpg'),
+      img('images/warehouse.jpg'),
+      'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=800&q=80', // Внешнюю ссылку оставляем как есть!
     ],
     features: [
       { label: 'Площадь', value: '[ПЛОЩАДЬ] м²' },
@@ -38,10 +40,10 @@ export const projects = [
     status: 'В строительстве',
     year: '[ГОД]',
     description: '[ОПИСАНИЕ] Офисно-торговый комплекс, генерирующий стабильный денежный поток.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80',
+    image: img('images/commercial.jpg'),
     gallery: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+      img('images/commercial.jpg'),
+      img('images/office.jpg'),
     ],
     features: [
       { label: 'Площадь', value: '[ПЛОЩАДЬ] м²' },
@@ -65,10 +67,10 @@ export const projects = [
     status: 'Реализован',
     year: '[ГОД]',
     description: '[ОПИСАНИЕ] Современный жилой комплекс с развитой инфраструктурой.',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80',
+    image: img('images/residential.jpg'),
     gallery: [
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+      img('images/residential.jpg'),
+      img('images/commercial.jpg'),
     ],
     features: [
       { label: 'Площадь', value: '[ПЛОЩАДЬ] м²' },
@@ -93,9 +95,9 @@ export const projects = [
     status: 'Проектирование',
     year: '[ГОД]',
     description: '[ОПИСАНИЕ] Инфраструктура, которая двигает экономику. Индустриальный парк нового поколения.',
-    image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80',
+    image: img('images/warehouse.jpg'),
     gallery: [
-      'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80',
+      img('images/warehouse.jpg'),
     ],
     features: [
       { label: 'Площадь', value: '[ПЛОЩАДЬ] м²' },
@@ -111,6 +113,5 @@ export const projects = [
 ]
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug)
-
 export const projectTypes = ['Все', 'Логистика', 'Коммерция', 'Жильё']
 export const projectStatuses = ['Все', 'Реализован', 'В строительстве', 'Проектирование']

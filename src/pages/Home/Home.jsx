@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { img } from '../../utils/asset'
 import { projects } from '../../data/projects'
 import { services } from '../../data/services'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
@@ -104,12 +105,12 @@ export default function Home() {
             alt="Object 1"
           />
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80"
+            src={img('images/commercial.jpg')}
             className="absolute inset-0 w-full h-full object-cover animate-fade-2"
             alt="Object 2"
           />
           <img
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80"
+            src={img('images/logistics.jpg')}
             className="absolute inset-0 w-full h-full object-cover animate-fade-3"
             alt="Object 3"
           />
@@ -158,7 +159,7 @@ export default function Home() {
           <div className="md:col-span-6 relative mt-8 md:mt-0 order-3">
             <div className="parallax-img relative overflow-hidden aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/5]" data-speed="0.12">
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&q=80"
+                src={img('images/logistics.jpg')}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 alt="Логистика"
               />
@@ -174,7 +175,7 @@ export default function Home() {
           <div className="md:col-span-7 relative order-2 md:order-1">
             <div className="parallax-img relative overflow-hidden aspect-[16/11] sm:aspect-[16/10]" data-speed="-0.08">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80"
+                src={img('images/commercial.jpg')}
                 className="w-full h-full object-cover"
                 alt="Коммерция"
               />
@@ -202,7 +203,7 @@ export default function Home() {
       <section className="relative h-[100svh] min-h-[520px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80"
+            src={img('images/residential.jpg')}
             className="w-full h-full object-cover opacity-50 parallax-img"
             data-speed="0.05"
             alt="Жильё"
@@ -256,19 +257,19 @@ export default function Home() {
                 num: '02',
                 title: 'ПРОЕКТИРОВАНИЕ',
                 text: 'Детальная проработка BIM-моделей и инженерных систем.',
-                img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+                img: img('images/commercial.jpg'),
               },
               {
                 num: '03',
                 title: 'СТРОИТЕЛЬСТВО',
                 text: 'Контроль качества, соблюдение сроков и бюджетная дисциплина.',
-                img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
+                img: img('images/logistics.jpg'),
               },
               {
                 num: '04',
                 title: 'СДАЧА',
                 text: 'Ввод в эксплуатацию и передача готового актива инвестору.',
-                img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+                img: img('images/residential.jpg'),
               },
             ].map((card) => (
               <div key={card.num} className="process-card relative group interactive-hover overflow-hidden">
@@ -296,6 +297,7 @@ export default function Home() {
 
       {/* География */}
       <Geography />
+      {/* Техника */}
       <Fleet />
 
       {/* Featured projects */}

@@ -1,3 +1,5 @@
+import { img } from '../utils/asset'
+
 export const news = [
   {
     id: 1,
@@ -5,7 +7,7 @@ export const news = [
     title: 'Запущен новый логистический проект',
     date: '2026-03-15',
     excerpt: '[КРАТКОЕ ОПИСАНИЕ] Компания приступила к реализации крупного складского комплекса.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
+    image: img('images/logistics.jpg'),
     content: '[ПОЛНЫЙ ТЕКСТ НОВОСТИ] Placeholder для полного текста новости. Здесь будет размещён детальный материал о событии, с фотографиями и фактами.',
   },
   {
@@ -14,7 +16,7 @@ export const news = [
     title: 'ED GRUPP расширяет географию',
     date: '2026-02-01',
     excerpt: '[КРАТКОЕ ОПИСАНИЕ] Новые регионы присутствия и планы развития.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+    image: img('images/commercial.jpg'),
     content: '[ПОЛНЫЙ ТЕКСТ НОВОСТИ] Placeholder.',
   },
   {
@@ -23,7 +25,7 @@ export const news = [
     title: 'Внедрение новых стандартов качества',
     date: '2025-12-10',
     excerpt: '[КРАТКОЕ ОПИСАНИЕ] Обновлённые процессы контроля на всех этапах строительства.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=800&q=80', // Внешнюю ссылку не трогаем!
     content: '[ПОЛНЫЙ ТЕКСТ НОВОСТИ] Placeholder.',
   },
 ]

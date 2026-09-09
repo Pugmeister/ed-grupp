@@ -1,48 +1,50 @@
+import { img } from '../../utils/asset'
+
 const fleet = [
   {
     value: 14,
     label: 'Самосвалов',
-    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
+    image: img('images/fleet-dump-truck.jpg'),
   },
   {
     value: 2,
     label: 'Седельных тягача',
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&q=80',
+    image: img('images/fleet-tractor.jpg'),
   },
   {
     value: 6,
     label: 'Автокранов',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=600&q=80', // Внешняя ссылка
   },
   {
     value: 1,
     label: 'Манипулятор',
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+    image: img('images/fleet-manipulator.jpg'),
   },
   {
     value: 4,
     label: 'Бульдозера',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
+    image: img('images/fleet-bulldozer.jpg'),
   },
   {
     value: 9,
     label: 'Экскаваторов',
-    image: 'https://images.unsplash.com/photo-1599700403969-f77b0c4f0a0e?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1599700403969-f77b0c4f0a0e?w=600&q=80', // Внешняя ссылка
   },
   {
     value: 2,
     label: 'Автогрейдера',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80',
+    image: img('images/fleet-grader.jpg'),
   },
   {
     value: 5,
     label: 'Катков',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=600&q=80', // Внешняя ссылка
   },
   {
     value: 17,
     label: 'Погрузчиков',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+    image: img('images/fleet-loader.jpg'),
   },
 ]
 
