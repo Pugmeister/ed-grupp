@@ -1,13 +1,49 @@
 const fleet = [
-  { value: 14, label: 'Самосвалов' },
-  { value: 2,  label: 'Седельных тягача' },
-  { value: 6,  label: 'Автокранов' },
-  { value: 1,  label: 'Манипулятор' },
-  { value: 4,  label: 'Бульдозера' },
-  { value: 9,  label: 'Экскаваторов' },
-  { value: 2,  label: 'Автогрейдера' },
-  { value: 5,  label: 'Катков' },
-  { value: 17, label: 'Погрузчиков' },
+  {
+    value: 14,
+    label: 'Самосвалов',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
+  },
+  {
+    value: 2,
+    label: 'Седельных тягача',
+    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&q=80',
+  },
+  {
+    value: 6,
+    label: 'Автокранов',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=600&q=80',
+  },
+  {
+    value: 1,
+    label: 'Манипулятор',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+  },
+  {
+    value: 4,
+    label: 'Бульдозера',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
+  },
+  {
+    value: 9,
+    label: 'Экскаваторов',
+    image: 'https://images.unsplash.com/photo-1599700403969-f77b0c4f0a0e?w=600&q=80',
+  },
+  {
+    value: 2,
+    label: 'Автогрейдера',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80',
+  },
+  {
+    value: 5,
+    label: 'Катков',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=600&q=80',
+  },
+  {
+    value: 17,
+    label: 'Погрузчиков',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+  },
 ]
 
 export default function Fleet() {
@@ -36,18 +72,32 @@ export default function Fleet() {
           </div>
         </div>
 
-        {/* Сетка */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        {/* Сетка с фото */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {fleet.map((item) => (
             <div
               key={item.label}
-              className="group border border-ink/10 p-5 sm:p-6 hover:border-accent/40 hover:bg-ink hover:text-paper transition-all duration-300"
+              className="group relative overflow-hidden border border-ink/10 hover:border-accent/40 transition-all duration-500"
             >
-              <div className="font-display text-4xl sm:text-5xl font-bold text-accent group-hover:text-accent transition-colors">
-                {item.value}
+              {/* Фото */}
+              <div className="aspect-[16/10] overflow-hidden bg-ink/5">
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
               </div>
-              <div className="mt-2 text-sm sm:text-base text-gray-600 group-hover:text-gray-300 transition-colors leading-snug">
-                {item.label}
+
+              {/* Текст поверх */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                <div className="font-display text-4xl sm:text-5xl font-bold text-accent">
+                  {item.value}
+                </div>
+                <div className="mt-1 text-sm sm:text-base text-paper/90 font-medium">
+                  {item.label}
+                </div>
               </div>
             </div>
           ))}
