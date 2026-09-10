@@ -12,6 +12,7 @@ import News from './pages/News/News'
 import Article from './pages/Article/Article'
 import Contacts from './pages/Contacts/Contacts'
 import ScrollToTop from './components/ScrollToTop'
+import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<Article />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
