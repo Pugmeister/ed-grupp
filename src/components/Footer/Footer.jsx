@@ -86,12 +86,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs opacity-70">
-          <div>© {new Date().getFullYear()} ED GRUPP. All rights reserved.</div>
-          <div className="flex gap-6">
+          <div>© {new Date().getFullYear()} ED GRUPP. Все права защищены.</div>
+          <div className="flex flex-wrap gap-6">
             <Link to="/contacts" className="hover:text-paper transition-colors">
               Политика конфиденциальности
             </Link>
-            <span>[РЕКВИЗИТЫ]</span>
           </div>
         </div>
       </div>

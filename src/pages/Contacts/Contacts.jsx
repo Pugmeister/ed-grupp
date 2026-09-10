@@ -35,21 +35,41 @@ export default function Contacts() {
 
             <div>
               <h2 className="text-xs tracking-[0.2em] uppercase text-gray-500 mb-3">Адрес</h2>
-              <p className="text-gray-300 leading-relaxed">[АДРЕС КОМПАНИИ]</p>
+              <p className="text-gray-300 leading-relaxed">
+                350042, г. Краснодар,
+                <br />
+                ул. МОПР, д. 18, этаж 3, пом. 6
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xs tracking-[0.2em] uppercase text-gray-500 mb-3">Режим работы</h2>
+              <p className="text-gray-300 leading-relaxed">
+                Пн–Пт: 9:00–17:00
+                <br />
+                Сб–Вс: выходной
+              </p>
             </div>
 
             <div>
               <h2 className="text-xs tracking-[0.2em] uppercase text-gray-500 mb-3">Реквизиты</h2>
               <p className="text-sm text-gray-400 leading-relaxed">
-                [ИНН] · [ОГРН]
-                <br />
-                [ЮРИДИЧЕСКОЕ НАЗВАНИЕ]
+                Уточняются у заказчика
+                {/* Когда пришлют: ИНН, ОГРН, юр. название */}
               </p>
             </div>
 
-            {/* Map placeholder */}
-            <div className="aspect-[16/10] bg-white/5 border border-white/10 flex items-center justify-center text-gray-500 text-sm">
-              [КАРТА — подключить Яндекс/Google Maps]
+            {/* Карта — Яндекс, Краснодар, МОПР 18 */}
+            <div className="aspect-[16/10] overflow-hidden border border-white/10">
+              <iframe
+                title="Офис ED GRUPP — ул. МОПР, 18"
+                src="https://yandex.ru/map-widget/v1/?ll=38.9968%2C45.0452&z=17&pt=38.9968,45.0452,pm2rdm&l=map"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+                className="w-full h-full"
+              />
             </div>
           </div>
 
