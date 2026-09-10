@@ -232,39 +232,50 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      {/* 04 Промышленное строительство */}
+      {/* 04 Промышленное — зеркало 01, та же editorial-логика */}
       <section className="relative min-h-[100svh] w-full flex items-center py-16 sm:py-20 md:py-24 px-5 sm:px-6 md:px-12 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-10 pointer-events-none">
           <span className="section-num-bg font-display font-bold leading-none">04</span>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
-          <div className="md:col-span-1 flex md:justify-center order-1">
-            <span className="block-num vertical-text font-display font-bold text-accent">04</span>
+          {/* Фото — слева на десктопе */}
+          <div className="md:col-span-6 relative order-3 md:order-1 mt-8 md:mt-0">
+            <div
+              className="parallax-img relative overflow-hidden aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/5]"
+              data-speed="0.1"
+            >
+              <img
+                src={img('images/warehouse.jpg')}
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                alt="Промышленное строительство"
+              />
+            </div>
+            <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-40 sm:h-40 border border-accent z-[-1]" />
           </div>
 
-          <div className="md:col-span-5 space-y-4 sm:space-y-6 reveal order-2">
-            <h2 className="block-title font-display font-bold">ПРОМЫШЛЕННОЕ<br />СТРОИТЕЛЬСТВО</h2>
+          {/* Текст — справа на десктопе */}
+          <div className="md:col-span-5 space-y-4 sm:space-y-6 reveal order-2 flex flex-col items-start md:items-end text-left md:text-right">
+            <h2 className="block-title font-display font-bold">
+              ПРОМЫШЛЕННОЕ
+              <br />
+              СТРОИТЕЛЬСТВО
+            </h2>
             <p className="text-base sm:text-lg text-gray-400 max-w-md leading-relaxed">
-              Производственные объекты, цеха и инженерная инфраструктура. Сложные решения под задачи промышленности.
+              Производственные корпуса, цеха и инженерная инфраструктура.
+              Сложные объекты под задачи предприятия — в том же полном цикле.
             </p>
             <Link
               to="/services/industrial"
               className="inline-block border-b border-paper pb-1 text-sm sm:text-base hover:text-accent hover:border-accent transition-colors interactive-hover"
             >
-              Смотреть объекты →
+              Смотреть направление →
             </Link>
           </div>
 
-          <div className="md:col-span-6 relative mt-8 md:mt-0 order-3">
-            <div className="parallax-img relative overflow-hidden aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/5]" data-speed="0.12">
-              <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=1000&q=80"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                alt="Промышленное строительство"
-              />
-            </div>
-            <div className="absolute -bottom-6 -left-6 sm:-bottom-10 sm:-left-10 w-24 h-24 sm:w-40 sm:h-40 border border-accent z-[-1]" />
+          {/* Номер — отдельная колонка, как в 01 */}
+          <div className="md:col-span-1 flex md:justify-center order-1 md:order-3">
+            <span className="block-num vertical-text font-display font-bold text-accent">04</span>
           </div>
         </div>
       </section>
