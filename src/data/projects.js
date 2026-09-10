@@ -151,9 +151,8 @@ export const projects = [
     year: '',
     description:
       'Торговый комплекс «Сказка» в Краснодаре — современный семейный центр для отдыха. Полный цикл возведения коммерческой недвижимости. Общая площадь торгового центра — 30 000 м².',
-    image: img('images/projects/tts-skazka-krasnodar/01.jpg'),
+    image: img('images/projects/tts-skazka-krasnodar/02.jpg'),
     gallery: [
-      img('images/projects/tts-skazka-krasnodar/01.jpg'),
       img('images/projects/tts-skazka-krasnodar/02.jpg'),
       img('images/projects/tts-skazka-krasnodar/03.jpg'),
       img('images/projects/tts-skazka-krasnodar/04.jpg'),
@@ -186,9 +185,8 @@ export const projects = [
     year: '',
     description:
       'Жилой комплекс «Сказка» — дом элитного класса с подземным паркингом в центре Краснодара.',
-    image: img('images/projects/zhk-skazka-krasnodar/01.jpg'),
+    image: img('images/projects/zhk-skazka-krasnodar/02.jpg'),
     gallery: [
-      img('images/projects/zhk-skazka-krasnodar/01.jpg'),
       img('images/projects/zhk-skazka-krasnodar/02.jpg'),
       img('images/projects/zhk-skazka-krasnodar/03.jpg'),
       img('images/projects/zhk-skazka-krasnodar/04.jpg'),
@@ -225,9 +223,8 @@ export const projects = [
     year: '',
     description:
       'ЖК «Галактика» в 131 мкр Дзержинского района Волгограда. Комплекс спроектирован с учётом современных технологий и оснащён высококлассными инженерными системами.',
-    image: img('images/projects/zhk-galaktika-volgograd/01.jpg'),
+    image: img('images/projects/zhk-galaktika-volgograd/02.jpg'),
     gallery: [
-      img('images/projects/zhk-galaktika-volgograd/01.jpg'),
       img('images/projects/zhk-galaktika-volgograd/02.jpg'),
       img('images/projects/zhk-galaktika-volgograd/03.jpg'),
       img('images/projects/zhk-galaktika-volgograd/04.jpg'),
@@ -263,9 +260,8 @@ export const projects = [
     year: '',
     description:
       'ЖК «Новый» в Волгограде: три жилых дома и подземный паркинг. 131 мкр Дзержинского района, рядом с ТЦ «Мармелад».',
-    image: img('images/projects/zhk-novyj-volgograd/01.jpg'),
+    image: img('images/projects/zhk-novyj-volgograd/03.jpg'),
     gallery: [
-      img('images/projects/zhk-novyj-volgograd/01.jpg'),
       img('images/projects/zhk-novyj-volgograd/03.jpg'),
       img('images/projects/zhk-novyj-volgograd/04.jpg'),
       img('images/projects/zhk-novyj-volgograd/05.jpg'),
@@ -300,9 +296,8 @@ export const projects = [
     year: '',
     description:
       'ЖК «Снегири» в Волгограде: три 17-этажных дома премиум-класса с огороженной территорией рядом с комплексом «Мамаев курган».',
-    image: img('images/projects/zhk-snegiri-volgograd/01.jpg'),
+    image: img('images/projects/zhk-snegiri-volgograd/03.jpg'),
     gallery: [
-      img('images/projects/zhk-snegiri-volgograd/01.jpg'),
       img('images/projects/zhk-snegiri-volgograd/03.jpg'),
       img('images/projects/zhk-snegiri-volgograd/04.jpg'),
       img('images/projects/zhk-snegiri-volgograd/05.jpg'),
