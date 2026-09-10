@@ -226,10 +226,6 @@ export default function Geography() {
                 </div>
               )}
             </div>
-
-            <p className="mt-4 text-xs text-gray-500 text-center sm:text-left">
-              Нажмите на регион слева или на точку на карте
-            </p>
           </div>
         </div>
       </div>
