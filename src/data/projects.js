@@ -12,8 +12,18 @@ export const projects = [
     year: '',
     description:
       'Складской комплекс в Московской области, р.п. Обухово Богородского городского округа. Комплекс представляет собой 3 складских корпуса. Общая площадь застраиваемого участка — 20 га. Планируемая общая площадь застройки логопарка — порядка 85 000 м². Пользователь комплексов — компания AliExpress.',
-    image: '/images/logistics.jpg',
-    gallery: ['/images/logistics.jpg', '/images/warehouse.jpg'],
+    image: img('/images/sklad-obuhovo-moskva.jpg'),
+    gallery: [
+      img('/images/sklad-obuhovo-moskva.jpg'),
+      img('/images/sklad-obuhovo-moskva2.jpg'),
+      img('/images/sklad-obuhovo-moskva3.jpg'),
+      img('/images/sklad-obuhovo-moskva4.jpg'),
+      img('/images/sklad-obuhovo-moskva5.jpg'),
+      img('/images/sklad-obuhovo-moskva6.jpg'),
+      img('/images/sklad-obuhovo-moskva7.jpg'),
+      img('/images/sklad-obuhovo-moskva8.jpg'),
+      img('/images/sklad-obuhovo-moskva9.jpg'),
+      img('/images/sklad-obuhovo-moskva10.jpg'),],
     features: [
       { label: 'Площадь', value: '≈ 85 000 м²' },
       { label: 'Участок', value: '20 га' },
