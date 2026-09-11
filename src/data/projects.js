@@ -319,9 +319,66 @@ export const projects = [
       { title: 'Сдача', description: 'Ввод в эксплуатацию' },
     ],
   },
+  {
+    id: 10,
+    slug: 'azerbaijan-complex',
+    title: 'Объект в Азербайджане',
+    location: 'Азербайджан',
+    type: 'Логистика', // поменяешь, когда уточнят
+    area: '[ПЛОЩАДЬ] м²',
+    status: 'Реализован', // или «В строительстве»
+    year: '[ГОД]',
+    description:
+      'Международный проект ED GRUPP в Азербайджане. Детали объекта, площадь и фото — обновляются по данным заказчика. Полный цикл: от техзадания до ввода «под ключ».',
+    image: img('images/logistics.jpg'), // замени на photos/projects/azerbaijan/...
+    gallery: [
+      img('images/logistics.jpg'),
+      img('images/warehouse.jpg'),
+    ],
+    features: [
+      { label: 'Страна', value: 'Азербайджан' },
+      { label: 'Формат', value: 'Международный проект' },
+      { label: 'Цикл', value: 'Под ключ' },
+      { label: 'Статус', value: 'Реализован' },
+    ],
+    stages: [
+      { title: 'Концепция', description: 'ТЗ и параметры площадки' },
+      { title: 'Проектирование', description: 'Документация и инженерия' },
+      { title: 'Строительство', description: 'Возведение и сети' },
+      { title: 'Сдача', description: 'Ввод «под ключ»' },
+    ],
+  },
+  {
+    id: 11,
+    slug: 'industrial-facility',
+    title: 'Промышленный объект',
+    location: '[ЛОКАЦИЯ]',
+    type: 'Промышленность',
+    area: '[ПЛОЩАДЬ] м²',
+    status: 'Реализован',
+    year: '[ГОД]',
+    description:
+      'Производственный / промышленный объект полного цикла: корпус, инженерия, подготовка под технологию заказчика. Карточка-заготовка — заменим название, фото и цифры, когда пришлют материалы.',
+    image: img('images/warehouse.jpg'),
+    gallery: [
+      img('images/warehouse.jpg'),
+      img('images/construction.jpg'),
+    ],
+    features: [
+      { label: 'Тип', value: 'Промышленность' },
+      { label: 'Цикл', value: 'Под ключ' },
+      { label: 'Статус', value: 'Реализован' },
+    ],
+    stages: [
+      { title: 'Анализ', description: 'ТЗ и требования производства' },
+      { title: 'Проектирование', description: 'Конструктив и сети' },
+      { title: 'Строительство', description: 'Корпус и инженерия' },
+      { title: 'Сдача', description: 'Ввод в эксплуатацию' },
+    ],
+  },
 ]
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug)
 
-export const projectTypes = ['Все', 'Логистика', 'Коммерция', 'Жильё']
+export const projectTypes = ['Все', 'Логистика', 'Коммерция', 'Жильё', 'Промышленность']
 export const projectStatuses = ['Все', 'Реализован', 'В строительстве', 'Проектирование']

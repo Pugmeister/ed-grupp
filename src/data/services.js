@@ -48,6 +48,7 @@ export const services = [
       'sklad-koltsovo-ekaterinburg',
       'sklad-dorozhnyj-rostov',
       'sklad-oktyabrskij-krasnodar',
+      'azerbaijan-complex',
     ],
   },
   {
@@ -185,7 +186,7 @@ export const services = [
       { value: '20+', label: 'Лет на рынке' },
       { value: '100%', label: 'Полный цикл' },
     ],
-    relatedProjects: [],
+    relatedProjects: ['industrial-facility'],
   },
 ]
 
