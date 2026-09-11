@@ -4,7 +4,7 @@ import { img } from '../../utils/asset'
 const principles = [
   {
     title: 'Полный цикл',
-    text: 'От анализа участка и концепции до ввода объекта в эксплуатацию — одна команда и одна ответственность.',
+    text: 'От техзадания и анализа участка до ввода объекта «под ключ» — одна команда и одна ответственность.',
   },
   {
     title: 'Сроки',
@@ -20,7 +20,7 @@ const principles = [
   },
 ]
 
-// Положи файлы в public/images/licenses/ (01.jpg, 02.jpg…)
+// Файлы: public/images/licenses/01.jpg … 06.jpg
 const licenses = [
   { src: img('images/licenses/01.jpg'), alt: 'Лицензия / допуск 1' },
   { src: img('images/licenses/02.jpg'), alt: 'Лицензия / допуск 2' },
@@ -45,19 +45,21 @@ export default function About() {
             КОТОРЫЕ РАБОТАЮТ
           </h1>
           <p className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
-            ED GRUPP — строительная компания полного цикла с более чем 20-летним опытом.
-            За это время реализовано свыше 1&nbsp;млн&nbsp;м²: логистика класса&nbsp;А, коммерция
-            и жильё. От концепции до ввода в эксплуатацию — с контролем сроков и качества.
+            ED GRUPP — строительная компания полного цикла с более чем 20-летним
+            опытом и международными проектами. За это время реализовано свыше
+            1&nbsp;млн&nbsp;м²: логистика класса&nbsp;А, коммерция, жильё и
+            промышленность. От техзадания до ввода «под ключ» — с контролем
+            сроков и качества.
           </p>
         </header>
 
-        {/* Цифры — только то, что можно защищать */}
+        {/* Цифры */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 py-12 border-y border-white/10">
           {[
             { value: '20+', label: 'Лет на рынке' },
             { value: '1 млн+', label: 'м² построено' },
-            { value: '7', label: 'Регионов' },
-            { value: '100%', label: 'Полный цикл' },
+            { value: '8', label: 'География присутствия' },
+            { value: '100%', label: 'Под ключ' },
           ].map((item) => (
             <div key={item.label} className="text-center md:text-left">
               <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-accent">
@@ -70,7 +72,7 @@ export default function About() {
           ))}
         </section>
 
-        {/* Специализация + фокус */}
+        {/* Специализация */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
           <div className="lg:col-span-5">
             <h2 className="font-display text-3xl sm:text-4xl font-bold mb-6 tracking-tight">
@@ -78,13 +80,13 @@ export default function About() {
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
               Основной фокус — складские комплексы класса&nbsp;А и коммерческая
-              недвижимость. Строим также жилые объекты. Один подрядчик на весь цикл:
-              земля, каркас, инженерия, сдача.
+              недвижимость. Строим также жилые и промышленные объекты. Один
+              подрядчик на весь цикл: земля, каркас, инженерия, сдача.
             </p>
             <p className="text-gray-400 leading-relaxed">
               Среди реализованных площадок — логопарки для резидентов вроде Ozon,
-              AliExpress, X5, «Ленты» и Яндекса, а также жилые комплексы в Краснодаре
-              и Волгограде.
+              AliExpress, X5, «Ленты» и Яндекса, а также жилые комплексы в
+              Краснодаре и Волгограде.
             </p>
           </div>
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -147,10 +149,14 @@ export default function About() {
           <h2 className="font-display text-3xl sm:text-4xl font-bold mb-6 tracking-tight">
             География
           </h2>
+          <p className="text-gray-400 leading-relaxed mb-4">
+            Более 20 лет строим в ключевых регионах России: Московская,
+            Ростовская, Свердловская, Волгоградская, Тюменская области,
+            Краснодарский и Ставропольский края.
+          </p>
           <p className="text-gray-400 leading-relaxed">
-            Более 20 лет строим в ключевых регионах России. Сегодня объекты компании —
-            в Московской, Ростовской, Свердловской, Волгоградской областях
-            и Краснодарском крае. Суммарно — свыше 1&nbsp;млн&nbsp;м² введённых площадей.
+            Есть и международный опыт — проекты в Азербайджане. Суммарно по
+            компании — свыше 1&nbsp;млн&nbsp;м² введённых площадей.
           </p>
         </section>
 
@@ -162,8 +168,8 @@ export default function About() {
                 Лицензии и допуски
               </h2>
               <p className="mt-3 text-gray-400 max-w-xl">
-                Документы, подтверждающие право выполнять строительные работы
-                и обязательства перед заказчиком.
+                Документы, подтверждающие право выполнять строительные работы и
+                обязательства перед заказчиком.
               </p>
             </div>
           </div>
@@ -200,8 +206,15 @@ export default function About() {
 
         {/* CTA */}
         <section className="text-center py-8 border-t border-white/10">
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
-            Есть участок, ТЗ или идея объекта — обсудим формат работы и сроки.
+          <p className="text-gray-500 mb-2 text-xs tracking-[0.2em] uppercase">
+            Следующий шаг
+          </p>
+          <p className="text-paper text-xl sm:text-2xl font-display font-bold mb-8 max-w-lg mx-auto leading-snug">
+            Есть техзадание?
+            <br />
+            <span className="text-gray-400 font-body text-base sm:text-lg font-normal">
+              Сделаем проект и построим «под ключ»
+            </span>
           </p>
           <Button to="/contacts" variant="accent">
             Обсудить проект
