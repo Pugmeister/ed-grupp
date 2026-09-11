@@ -31,7 +31,7 @@ export default function Geography() {
             ГЕОГРАФИЯ
           </h2>
           <p className="mt-4 text-gray-400 text-lg max-w-xl">
-            Наши проекты находятся в 7 регионах России
+            7 регионов России и Азербайджан. Международный опыт компании.
           </p>
         </div>
 

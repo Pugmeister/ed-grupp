@@ -9,8 +9,9 @@ export default function Services() {
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">
             УСЛУГИ
           </h1>
-          <p className="text-gray-400 max-w-xl text-base sm:text-lg">
-            Направления деятельности компании. Полный цикл от концепции до сдачи.
+          <p className="text-gray-400 max-w-xl text-base sm:text-lg leading-relaxed">
+            Четыре направления — один стандарт работы.
+            Логистика, коммерция, жильё и промышленность: полный цикл от концепции до ввода.
           </p>
         </header>
 
