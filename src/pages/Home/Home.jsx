@@ -100,7 +100,7 @@ export default function Home() {
       <section className="relative h-[100svh] min-h-[560px] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=1600&q=80"
+            src={img('images/office.jpg')}
             className="absolute inset-0 w-full h-full object-cover animate-fade-1"
             alt="Object 1"
           />
@@ -297,7 +297,7 @@ export default function Home() {
                 num: '01',
                 title: 'КОНЦЕПЦИЯ',
                 text: 'Анализ участка, финансовая модель и архитектурное видение.',
-                img: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=800&q=80',
+                img: img('images/fleet-grader.jpg'),
               },
               {
                 num: '02',
@@ -381,12 +381,12 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center max-w-6xl mx-auto">
-          <h2 className="cta-title font-display font-bold tracking-tighter">
-            ЕСТЬ ПРОЕКТ?
+          <h2 className="cta-title font-display font-bold tracking-tighter leading-[0.95]">
+            ЕСТЬ ТЕХЗАДАНИЕ?
             <br />
-            <span className="italic font-light text-accent group-hover:text-ink transition-colors">
-              ДАВАЙТЕ ПОСТРОИМ ЕГО.
-            </span>
+            <span className="italic font-light text-accent group-hover:text-ink transition-colors text-[0.42em] sm:text-[0.46em] md:text-[0.5em] tracking-normal block mt-3 sm:mt-5 leading-snug">
+    Сделаем проект и построим «под ключ»
+  </span>
           </h2>
 
           <Link
@@ -394,12 +394,7 @@ export default function Home() {
             className="inline-flex items-center gap-3 sm:gap-4 mt-10 sm:mt-12 text-lg sm:text-xl md:text-2xl font-bold border-b-2 border-current pb-2 interactive-hover"
           >
             Обсудить проект
-            <svg
-              className="cta-arrow w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="cta-arrow w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
