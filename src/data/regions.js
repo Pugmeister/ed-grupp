@@ -56,4 +56,12 @@ export const regions = [
     projectSlug: 'industrial-park',
     description: 'Промышленное строительство',
   },
+  {
+    id: 8,
+    name: 'Азербайджан',
+    short: 'Азербайджан',
+    coords: { x: 430, y: 455 }, // южнее РФ, условно — подкрутишь на карте
+    projectSlug: null, // или slug, когда появится объект
+    description: 'Международный опыт реализации проектов',
+  },
 ]

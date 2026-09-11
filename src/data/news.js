@@ -25,7 +25,7 @@ export const news = [
     title: 'Внедрение новых стандартов качества',
     date: '2025-12-10',
     excerpt: '[КРАТКОЕ ОПИСАНИЕ] Обновлённые процессы контроля на всех этапах строительства.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=800&q=80', // Внешнюю ссылку не трогаем!
+    image: img('images/office.jpg'),
     content: '[ПОЛНЫЙ ТЕКСТ НОВОСТИ] Placeholder.',
   },
 ]
