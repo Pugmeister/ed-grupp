@@ -22,9 +22,9 @@ const principles = [
 
 // Файлы: public/images/licenses/01.jpg … 06.jpg
 const licenses = [
-  { src: img('images/licenses/01.jpg'), alt: 'Лицензия / допуск 1' },
-  { src: img('images/licenses/02.jpg'), alt: 'Лицензия / допуск 2' },
-  { src: img('images/licenses/03.jpg'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-1.jpg'), alt: 'Лицензия / допуск 1' },
+  { src: img('images/licenses/Vypiska-2.jpg'), alt: 'Лицензия / допуск 2' },
+  { src: img('images/licenses/Vypiska-3.jpg'), alt: 'Лицензия / допуск 3' },
   { src: img('images/licenses/04.jpg'), alt: 'Сертификат 1' },
   { src: img('images/licenses/05.jpg'), alt: 'Сертификат 2' },
   { src: img('images/licenses/06.jpg'), alt: 'Сертификат 3' },
