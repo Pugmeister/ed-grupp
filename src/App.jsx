@@ -13,6 +13,7 @@ import Article from './pages/Article/Article'
 import Contacts from './pages/Contacts/Contacts'
 import ScrollToTop from './components/ScrollToTop'
 import NotFound from "./pages/NotFound/NotFound.jsx";
+import NewsDetail from "./pages/News/NewsDetail.jsx";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route path="/services/:slug" element={<Service />} />
           <Route path="/about" element={<About />} />
           <Route path="/news" element={<News />} />
-          <Route path="/news/:slug" element={<Article />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
