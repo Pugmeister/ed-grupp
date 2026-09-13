@@ -282,9 +282,12 @@ export default function Home() {
       {/* 3. FROM IDEA → TO REALITY */}
       <section className="horizontal-wrapper bg-ink text-paper" id="process-section" ref={processSectionRef}>
         <div className="horizontal-sticky">
-          <div className="absolute top-6 left-5 sm:top-10 sm:left-8 md:left-20 z-20 max-w-[min(90vw,28rem)]">
+          {/* добавляем градиент-подложку под заголовок */}
+          <div className="absolute top-0 left-0 w-full h-[45%] sm:h-[55%] bg-gradient-to-b from-ink/90 via-ink/40 to-transparent z-10 pointer-events-none" />
+
+          <div className="absolute top-4 left-5 sm:top-10 sm:left-8 md:left-20 z-20 max-w-[min(90vw,28rem)]">
             <h3 className="process-heading font-display font-bold leading-tight">
-              FROM IDEA <span className="text-accent">→</span> TO REALITY
+              ОТ ИДЕИ <span className="text-accent">→</span> К РЕАЛИЗАЦИИ
             </h3>
             <p className="text-gray-400 mt-2 max-w-xs text-xs sm:text-sm leading-relaxed">
               Полный цикл девелопмента: от первой эскизной линии до передачи ключей.
