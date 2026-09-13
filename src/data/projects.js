@@ -234,7 +234,6 @@ export const projects = [
       img('images/projects/zhk-galaktika-volgograd/08.jpg'),
       img('images/projects/zhk-galaktika-volgograd/09.jpg'),
       img('images/projects/zhk-galaktika-volgograd/10.jpg'),
-      img('images/projects/zhk-galaktika-volgograd/11.jpg'),
       img('images/projects/zhk-galaktika-volgograd/12.jpg'),
     ],
     features: [
@@ -271,7 +270,6 @@ export const projects = [
       img('images/projects/zhk-novyj-volgograd/09.jpg'),
       img('images/projects/zhk-novyj-volgograd/10.jpg'),
       img('images/projects/zhk-novyj-volgograd/11.jpg'),
-      img('images/projects/zhk-novyj-volgograd/12.jpg'),
     ],
     features: [
       { label: 'Состав', value: '3 дома + паркинг' },
@@ -324,13 +322,13 @@ export const projects = [
     slug: 'azerbaijan-complex',
     title: 'Объект в Азербайджане',
     location: 'Азербайджан',
-    type: 'Промышленность', // поменяешь, когда уточнят
+    type: 'Промышленность',
     area: '[ПЛОЩАДЬ] м²',
     status: 'Реализован', // или «В строительстве»
     year: '[ГОД]',
     description:
       'Международный проект ED GRUPP в Азербайджане. Детали объекта, площадь и фото — обновляются по данным заказчика. Полный цикл: от техзадания до ввода «под ключ».',
-    image: img('images/logistics.jpg'), // замени на photos/projects/azerbaijan/...
+    image: img('images/logistics.jpg'),
     gallery: [
       img('images/logistics.jpg'),
       img('images/warehouse.jpg'),
@@ -362,7 +360,7 @@ export const projects = [
     image: img('images/warehouse.jpg'),
     gallery: [
       img('images/warehouse.jpg'),
-      img('images/construction.jpg'),
+      img('images/commercial.jpg'),
     ],
     features: [
       { label: 'Тип', value: 'Промышленность' },
