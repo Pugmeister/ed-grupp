@@ -49,7 +49,7 @@ const fleet = [
 ]
 
 export default function Fleet() {
-  const total = fleet.reduce((sum, item) => sum + item.value, 0)
+  const total = "80+"
 
   return (
     <section className="py-20 sm:py-28 px-5 sm:px-6 md:px-12 bg-paper text-ink">
