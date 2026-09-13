@@ -14,7 +14,7 @@ const fleet = [
   {
     value: 6,
     label: 'Автокранов',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=600&q=80', // Внешняя ссылка
+    image: img('images/fleet-tractor.jpg'),
   },
   {
     value: 1,
