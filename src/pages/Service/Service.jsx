@@ -3,6 +3,7 @@ import { getServiceBySlug } from '../../data/services'
 import { getProjectBySlug } from '../../data/projects'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import Button from '../../components/Button/Button'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function Service() {
   const { slug } = useParams()
@@ -11,6 +12,14 @@ export default function Service() {
   if (!service) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-ink pt-28">
+        <Seo
+          title={service.title}
+          description={
+            service.shortDescription ||
+            (service.description && String(service.description).slice(0, 155)) ||
+            `${service.title} — полный цикл строительства ED GRUPP.`
+          }
+        />
         <div className="text-center">
           <h1 className="font-display text-4xl font-bold mb-4">Услуга не найдена</h1>
           <Link to="/services" className="text-accent hover:underline">

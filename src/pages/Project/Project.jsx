@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { getProjectBySlug, projects } from '../../data/projects'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import Button from '../../components/Button/Button'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function Project() {
   const { slug } = useParams()
@@ -10,6 +11,13 @@ export default function Project() {
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-ink pt-28">
+        <Seo
+          title={project.title}
+          description={
+            (project.description && String(project.description).slice(0, 155)) ||
+            `${project.title} — ${project.location}. ${project.type}, ${project.status}.`
+          }
+        />
         <div className="text-center">
           <h1 className="font-display text-4xl font-bold mb-4">Проект не найден</h1>
           <Link to="/projects" className="text-accent hover:underline">

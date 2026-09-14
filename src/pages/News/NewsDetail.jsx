@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { getNewsBySlug, formatNewsDate } from '../../data/news'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function NewsDetail() {
   const { slug } = useParams()
@@ -9,6 +10,10 @@ export default function NewsDetail() {
 
   return (
     <article className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
+      <Seo
+        title={item.title}
+        description={item.excerpt || item.title}
+      />
       <div className="max-w-3xl mx-auto">
         <Link
           to="/news"

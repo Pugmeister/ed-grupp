@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button/Button'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function NotFound() {
   return (
     <div className="min-h-[100svh] bg-ink text-paper flex flex-col items-center justify-center px-5 text-center">
+      <Seo
+        title="Страница не найдена"
+        description="Запрашиваемая страница не существует."
+        noIndex
+      />
       <span className="font-display text-[20vw] sm:text-[12rem] font-bold leading-none text-white/10 select-none">
         404
       </span>

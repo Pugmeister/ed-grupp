@@ -1,8 +1,13 @@
 import ContactForm from '../../components/ContactForm/ContactForm'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function Contacts() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
+      <Seo
+        title="Контакты"
+        description="Связаться с ED GRUPP: +7 (861) 205-44-80, info@edgrupp.ru. Краснодар, ул. МОПР, 18. Заявка и техзадание онлайн."
+      />
       <div className="max-w-7xl mx-auto">
         <header className="mb-14">
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight">

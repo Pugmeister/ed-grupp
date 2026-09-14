@@ -1,5 +1,6 @@
 import Button from '../../components/Button/Button'
 import { img } from '../../utils/asset'
+import Seo from "../../components/Seo/Seo.jsx";
 
 const principles = [
   {
@@ -37,6 +38,10 @@ const licenses = [
 export default function About() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
+      <Seo
+        title="О компании"
+        description="ED GRUPP — более 20 лет на рынке, свыше 1 млн м². Логистика, коммерция, жильё. 7 регионов России и Азербайджан."
+      />
       <div className="max-w-7xl mx-auto">
         {/* Hero */}
         <header className="mb-16 sm:mb-24 max-w-4xl">

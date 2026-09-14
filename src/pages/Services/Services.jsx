@@ -1,9 +1,14 @@
 import { services } from '../../data/services'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function Services() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
+      <Seo
+        title="Услуги"
+        description="Логистика класса А, коммерция, жилищное и промышленное строительство. Полный цикл «под ключ» — ED GRUPP."
+      />
       <div className="max-w-7xl mx-auto">
         <header className="mb-14 sm:mb-20">
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">

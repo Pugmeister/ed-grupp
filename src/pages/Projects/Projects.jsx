@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { projects, projectTypes, projectStatuses } from '../../data/projects'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import ProjectFilter from '../../components/ProjectFilter/ProjectFilter'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function Projects() {
   const [type, setType] = useState('Все')
@@ -17,6 +18,10 @@ export default function Projects() {
 
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
+      <Seo
+        title="Проекты"
+        description="Реализованные объекты ED GRUPP: складские комплексы класса А, ТЦ «Сказка», жилые комплексы в Краснодаре и Волгограде."
+      />
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 sm:mb-16">
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">

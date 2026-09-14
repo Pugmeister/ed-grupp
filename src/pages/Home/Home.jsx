@@ -2,11 +2,10 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { img } from '../../utils/asset'
 import { projects } from '../../data/projects'
-import { services } from '../../data/services'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
-import Button from '../../components/Button/Button'
 import Geography from '../../components/Geography/Geography'
 import Fleet from "../../components/Fleet/Fleet.jsx";
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function Home() {
   const horizontalTrackRef = useRef(null)
@@ -96,6 +95,10 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="Строительство логистики, коммерции и жилья"
+        description="ED GRUPP — полный цикл: склады класса А, коммерция, жильё и промышленность. 20+ лет, 1 млн+ м². От техзадания до объекта «под ключ»."
+      />
       {/* 1. HERO */}
       <section className="relative h-[100svh] min-h-[560px] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">

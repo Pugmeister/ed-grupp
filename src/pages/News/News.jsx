@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 import { news, formatNewsDate } from '../../data/news'
+import Seo from "../../components/Seo/Seo.jsx";
 
 export default function News() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
+      <Seo
+        title="Новости"
+        description="Новости и материалы строительной компании ED GRUPP: логистика, география, полный цикл работ."
+      />
       <div className="max-w-7xl mx-auto">
         <header className="mb-14 sm:mb-20 max-w-3xl">
           <p className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
