@@ -50,6 +50,20 @@ export default function News() {
                 <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
                   {item.excerpt}
                 </p>
+
+                {item.highlights && item.highlights.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {item.highlights.slice(0, 2).map((h, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] tracking-wide uppercase text-gray-400 border border-white/10 px-3 py-1"
+                      >
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
                 <Link
                   to={`/news/${item.slug}`}
                   className="text-sm border-b border-paper pb-0.5 self-start hover:text-accent hover:border-accent transition-colors"

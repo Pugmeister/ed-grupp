@@ -34,6 +34,19 @@ export default function NewsDetail() {
           />
         </div>
 
+        {item.highlights && item.highlights.length > 0 && (
+          <div className="flex flex-wrap gap-3 mb-12">
+            {item.highlights.map((h, i) => (
+              <span
+                key={i}
+                className="text-xs sm:text-sm tracking-wide uppercase text-accent border border-accent/30 px-4 py-2"
+              >
+                {h}
+              </span>
+            ))}
+          </div>
+        )}
+
         <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed">
           {item.content.map((p, i) => (
             <p key={i}>{p}</p>
