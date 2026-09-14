@@ -25,9 +25,13 @@ const licenses = [
   { src: img('images/licenses/Vypiska-1.jpg'), alt: 'Лицензия / допуск 1' },
   { src: img('images/licenses/Vypiska-2.jpg'), alt: 'Лицензия / допуск 2' },
   { src: img('images/licenses/Vypiska-3.jpg'), alt: 'Лицензия / допуск 3' },
-  { src: img('images/licenses/04.jpg'), alt: 'Сертификат 1' },
-  { src: img('images/licenses/05.jpg'), alt: 'Сертификат 2' },
-  { src: img('images/licenses/06.jpg'), alt: 'Сертификат 3' },
+  { src: img('images/licenses/Vypiska-4.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-5.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-6.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-7.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-8.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-9.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-10.png'), alt: 'Лицензия / допуск 3' },
 ]
 
 export default function About() {

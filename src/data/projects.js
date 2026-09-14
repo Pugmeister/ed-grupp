@@ -320,18 +320,21 @@ export const projects = [
   {
     id: 10,
     slug: 'azerbaijan-complex',
-    title: 'Объект в Азербайджане',
+    title: 'Бакинский объект',
     location: 'Азербайджан',
     type: 'Промышленность',
-    area: '[ПЛОЩАДЬ] м²',
+    area: '',
     status: 'Реализован', // или «В строительстве»
-    year: '[ГОД]',
+    year: '',
     description:
       'Международный проект ED GRUPP в Азербайджане. Детали объекта, площадь и фото — обновляются по данным заказчика. Полный цикл: от техзадания до ввода «под ключ».',
-    image: img('images/logistics.jpg'),
+    image: img('images/projects/azerbaijan-complex/01.jpg'),
     gallery: [
-      img('images/logistics.jpg'),
-      img('images/warehouse.jpg'),
+      img('images/projects/azerbaijan-complex/01.jpg'),
+      img('images/projects/azerbaijan-complex/02.jpg'),
+      img('images/projects/azerbaijan-complex/03.jpg'),
+      img('images/projects/azerbaijan-complex/04.jpg'),
+      img('images/projects/azerbaijan-complex/05.jpg'),
     ],
     features: [
       { label: 'Страна', value: 'Азербайджан' },
@@ -344,34 +347,6 @@ export const projects = [
       { title: 'Проектирование', description: 'Документация и инженерия' },
       { title: 'Строительство', description: 'Возведение и сети' },
       { title: 'Сдача', description: 'Ввод «под ключ»' },
-    ],
-  },
-  {
-    id: 11,
-    slug: 'industrial-facility',
-    title: 'Промышленный объект',
-    location: '[ЛОКАЦИЯ]',
-    type: 'Промышленность',
-    area: '[ПЛОЩАДЬ] м²',
-    status: 'Реализован',
-    year: '[ГОД]',
-    description:
-      'Производственный / промышленный объект полного цикла: корпус, инженерия, подготовка под технологию заказчика. Карточка-заготовка — заменим название, фото и цифры, когда пришлют материалы.',
-    image: img('images/warehouse.jpg'),
-    gallery: [
-      img('images/warehouse.jpg'),
-      img('images/commercial.jpg'),
-    ],
-    features: [
-      { label: 'Тип', value: 'Промышленность' },
-      { label: 'Цикл', value: 'Под ключ' },
-      { label: 'Статус', value: 'Реализован' },
-    ],
-    stages: [
-      { title: 'Анализ', description: 'ТЗ и требования производства' },
-      { title: 'Проектирование', description: 'Конструктив и сети' },
-      { title: 'Строительство', description: 'Корпус и инженерия' },
-      { title: 'Сдача', description: 'Ввод в эксплуатацию' },
     ],
   },
 ]
