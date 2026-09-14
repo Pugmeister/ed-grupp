@@ -11,13 +11,7 @@ export default function Project() {
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-ink pt-28">
-        <Seo
-          title={project.title}
-          description={
-            (project.description && String(project.description).slice(0, 155)) ||
-            `${project.title} — ${project.location}. ${project.type}, ${project.status}.`
-          }
-        />
+        <Seo title="Проект не найден" description="Такого проекта нет в каталоге ED GRUPP." noIndex />
         <div className="text-center">
           <h1 className="font-display text-4xl font-bold mb-4">Проект не найден</h1>
           <Link to="/projects" className="text-accent hover:underline">
@@ -32,6 +26,13 @@ export default function Project() {
 
   return (
     <div className="bg-ink min-h-screen">
+      <Seo
+        title={project.title}
+        description={
+          (project.description && String(project.description).slice(0, 155)) ||
+          `${project.title} — ${project.location}. ${project.type}, ${project.status}.`
+        }
+      />
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[420px] overflow-hidden">
         <img
