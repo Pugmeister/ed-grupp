@@ -246,7 +246,7 @@ export default function Home() {
               data-speed="0.1"
             >
               <img
-                src={img('images/warehouse.jpg')}
+                src={img('images/projects/azerbaijan-complex/01.jpg')}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 alt="Промышленное строительство"
               />
