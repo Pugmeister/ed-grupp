@@ -4,52 +4,52 @@ const fleet = [
   {
     value: 14,
     label: 'Самосвалов',
-    image: img('images/fleet-dump-truck.jpg'),
+    image: img('images/fleets/1.jpg'),
   },
   {
     value: 2,
     label: 'Седельных тягача',
-    image: img('images/fleet-tractor.jpg'),
+    image: img('images/fleets/2.jpg'),
   },
   {
     value: 6,
     label: 'Автокранов',
-    image: img('images/fleet-tractor.jpg'),
+image: img('images/fleets/3.jpg'),
   },
   {
     value: 1,
     label: 'Манипулятор',
-    image: img('images/fleet-manipulator.jpg'),
+image: img('images/fleets/4.jpg'),
   },
   {
     value: 4,
     label: 'Бульдозера',
-    image: img('images/fleet-bulldozer.jpg'),
+image: img('images/fleets/5.jpg'),
   },
   {
     value: 9,
     label: 'Экскаваторов',
-    image: 'https://images.unsplash.com/photo-1599700403969-f77b0c4f0a0e?w=600&q=80', // Внешняя ссылка
+image: img('images/fleets/6.jpg'),
   },
   {
     value: 2,
     label: 'Автогрейдера',
-    image: img('images/fleet-grader.jpg'),
+image: img('images/fleets/7.jpg'),
   },
   {
     value: 5,
     label: 'Катков',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fd0?w=600&q=80', // Внешняя ссылка
+image: img('images/fleets/8.jpg'),
   },
   {
     value: 17,
     label: 'Погрузчиков',
-    image: img('images/fleet-loader.jpg'),
+image: img('images/fleets/9.jpg'),
   },
 ]
 
 export default function Fleet() {
-  const total = "80+"
+  const total = '80+'
 
   return (
     <section className="py-20 sm:py-28 px-5 sm:px-6 md:px-12 bg-paper text-ink">
@@ -81,7 +81,6 @@ export default function Fleet() {
               key={item.label}
               className="group relative overflow-hidden border border-ink/10 hover:border-accent/40 transition-all duration-500"
             >
-              {/* Фото */}
               <div className="aspect-[16/10] overflow-hidden bg-ink/5">
                 <img
                   src={item.image}
@@ -92,7 +91,6 @@ export default function Fleet() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
               </div>
 
-              {/* Текст поверх */}
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
                 <div className="font-display text-4xl sm:text-5xl font-bold text-accent">
                   {item.value}
