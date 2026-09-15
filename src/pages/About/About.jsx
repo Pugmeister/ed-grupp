@@ -39,8 +39,8 @@ export default function About() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
-        title="О компании"
-        description="ED GRUPP — более 20 лет на рынке, свыше 1 млн м². Логистика, коммерция, жильё. 7 регионов России и Азербайджан."
+        title="О компании ED GRUPP — 20 лет и 1,5 млн м²"
+        description="Строительная компания полного цикла: 20+ лет на рынке, свыше 1,5 млн м². Логистика класса А, коммерция, жильё и промышленность. 7 регионов России и Азербайджан."
       />
       <div className="max-w-7xl mx-auto">
         {/* Hero */}
