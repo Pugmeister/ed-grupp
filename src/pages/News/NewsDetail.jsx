@@ -11,8 +11,8 @@ export default function NewsDetail() {
   return (
     <article className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
-        title={item.title}
-        description={item.excerpt || item.title}
+        title={item.seoTitle || item.title}
+        description={item.seoDescription || item.excerpt || item.title}
       />
       <div className="max-w-3xl mx-auto">
         <Link

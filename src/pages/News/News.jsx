@@ -6,8 +6,8 @@ export default function News() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
-        title="Новости"
-        description="Новости и материалы строительной компании ED GRUPP: логистика, география, полный цикл работ."
+        title="Новости компании ED GRUPP — проекты и направления"
+        description="Материалы о работе ED GRUPP: логистика класса А, география проектов, коммерция, жильё и полный цикл строительства «под ключ»."
       />
       <div className="max-w-7xl mx-auto">
         <header className="mb-14 sm:mb-20 max-w-3xl">
