@@ -6,8 +6,8 @@ export default function Services() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
-        title="Услуги"
-        description="Логистика класса А, коммерция, жилищное и промышленное строительство. Полный цикл «под ключ» — ED GRUPP."
+        title="Услуги — логистика, коммерция, жильё, промышленность"
+        description="Четыре направления ED GRUPP: склады класса А, торговые центры, жилые комплексы и промышленные корпуса. Полный цикл «под ключ»."
       />
       <div className="max-w-7xl mx-auto">
         <header className="mb-14 sm:mb-20">

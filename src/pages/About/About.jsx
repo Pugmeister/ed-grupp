@@ -165,7 +165,7 @@ export default function About() {
           </p>
           <p className="text-gray-400 leading-relaxed">
             Есть и международный опыт — проекты в Азербайджане. Суммарно по
-            компании — свыше 1&nbsp;млн&nbsp;м² введённых площадей.
+            компании — свыше 1.5&nbsp;млн+&nbsp;м² введённых площадей.
           </p>
         </section>
 
