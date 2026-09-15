@@ -19,8 +19,8 @@ export default function Projects() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
-        title="Проекты"
-        description="Реализованные объекты ED GRUPP: складские комплексы класса А, ТЦ «Сказка», жилые комплексы в Краснодаре и Волгограде."
+        title="Проекты ED GRUPP — логистика, жильё,коммерция и промышленность"
+        description="Реализованные объекты: склады класса А, ТЦ «Сказка», ЖК в Краснодаре и Волгограде. Фильтр по типу и статусу. Полный цикл строительства."
       />
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 sm:mb-16">

@@ -27,8 +27,9 @@ export default function Project() {
   return (
     <div className="bg-ink min-h-screen">
       <Seo
-        title={project.title}
+        title={project.seoTitle || project.title}
         description={
+          project.seoDescription ||
           (project.description && String(project.description).slice(0, 155)) ||
           `${project.title} — ${project.location}. ${project.type}, ${project.status}.`
         }
