@@ -13,9 +13,12 @@ export default function Service() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-ink pt-28">
         <Seo
-          title="Услуга не найдена"
-          description="Такого направления нет в каталоге ED GRUPP."
-          noIndex
+          title={service.seoTitle || service.title}
+          description={
+            service.shortDescription ||
+            (service.description && String(service.description).slice(0, 155)) ||
+            `${service.title} — полный цикл строительства ED GRUPP.`
+          }
         />
         <div className="text-center">
           <h1 className="font-display text-4xl font-bold mb-4">Услуга не найдена</h1>
