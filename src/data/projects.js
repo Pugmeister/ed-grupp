@@ -327,7 +327,7 @@ export const projects = [
     status: 'Реализован', // или «В строительстве»
     year: '',
     description:
-      'Международный проект ED GRUPP в Азербайджане. Детали объекта, площадь и фото — обновляются по данным заказчика. Полный цикл: от техзадания до ввода «под ключ».',
+      'Международный проект ED GRUPP в Азербайджане. Детали объекта, площадь и фото . Полный цикл: от техзадания до ввода «под ключ».',
     image: img('images/projects/azerbaijan-complex/01.jpg'),
     gallery: [
       img('images/projects/azerbaijan-complex/01.jpg'),

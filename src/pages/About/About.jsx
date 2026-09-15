@@ -56,7 +56,7 @@ export default function About() {
           <p className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
             ED GRUPP — строительная компания полного цикла с более чем 20-летним
             опытом и международными проектами. За это время реализовано свыше
-            1&nbsp;млн&nbsp;м²: логистика класса&nbsp;А, коммерция, жильё и
+            1.5&nbsp;млн+&nbsp;м²: логистика класса&nbsp;А, коммерция, жильё и
             промышленность. От техзадания до ввода «под ключ» — с контролем
             сроков и качества.
           </p>
@@ -66,7 +66,7 @@ export default function About() {
         <section className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 py-12 border-y border-white/10">
           {[
             { value: '20+', label: 'Лет на рынке' },
-            { value: '1 млн+', label: 'м² построено' },
+            { value: '1.5 млн+', label: 'м² построено' },
             { value: '8', label: 'География присутствия' },
             { value: '100%', label: 'Под ключ' },
           ].map((item) => (
