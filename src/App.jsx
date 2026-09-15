@@ -13,6 +13,7 @@ import Contacts from './pages/Contacts/Contacts'
 import ScrollToTop from './components/ScrollToTop'
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import NewsDetail from "./pages/News/NewsDetail.jsx";
+import Privacy from "./pages/Privacy/Privacy.jsx";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import {Link} from "react-router-dom";
 
 const ACCEPT =
   '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.zip,.rar,application/pdf'
@@ -309,6 +310,17 @@ export default function ContactForm({
           <p className="mt-1.5 text-xs text-accent">{errors.file}</p>
         )}
       </div>
+
+      <p className="text-xs text-gray-500 leading-relaxed">
+        Нажимая «Отправить заявку», вы соглашаетесь с{' '}
+        <Link
+          to="/privacy"
+          className="text-gray-400 underline hover:text-paper transition-colors"
+        >
+          политикой конфиденциальности
+        </Link>
+        .
+      </p>
 
       <div className="pt-2">
         <button
