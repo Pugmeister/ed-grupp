@@ -117,17 +117,14 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover animate-fade-3"
             alt="Object 3"
           />
-          <div className="absolute inset-0 bg-ink/40" />
+          {/* Было bg-ink/40 — мало для читаемости белого текста поверх фото */}
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/45 to-ink/70" />
         </div>
 
-        <h1 className="hero-title relative z-10 font-display font-bold text-paper tracking-tighter text-center mix-blend-difference px-4 sm:px-6">
-          МЫ
-          <br />
-          СТРОИМ
-          <br />
-          БОЛЬШЕ,
-          <br />
-          <span className="italic font-light">ЧЕМ ЗДАНИЯ.</span>
+        <h1 className="hero-title relative z-10 font-display font-bold tracking-tighter text-center px-4 sm:px-6 drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)]">
+          <span className="block text-paper">ГИБКОСТЬ</span>
+          <span className="block text-accent">СКОРОСТЬ</span>
+          <span className="block text-paper">ГАРАНТИЯ</span>
         </h1>
 
         <div className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70">
