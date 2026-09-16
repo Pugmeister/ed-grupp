@@ -12,6 +12,7 @@ export default function Footer() {
     <footer className="bg-ink text-gray-500 py-12 sm:py-16 px-5 sm:px-6 md:px-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
+
           {/* Logo & short */}
           <div className="md:col-span-4 space-y-4">
             <Link
@@ -20,6 +21,7 @@ export default function Footer() {
             >
               ED GRUPP
             </Link>
+
             <p className="text-sm leading-relaxed max-w-xs text-gray-400">
               Мы строим больше, чем здания. Современная строительная компания полного цикла.
             </p>
@@ -27,7 +29,10 @@ export default function Footer() {
 
           {/* Nav */}
           <div className="md:col-span-3">
-            <h4 className="text-paper text-xs tracking-[0.2em] uppercase mb-4">Навигация</h4>
+            <h4 className="text-paper text-xs tracking-[0.2em] uppercase mb-4">
+              Навигация
+            </h4>
+
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.to}>
@@ -44,7 +49,10 @@ export default function Footer() {
 
           {/* Contacts */}
           <div className="md:col-span-3">
-            <h4 className="text-paper text-xs tracking-[0.2em] uppercase mb-4">Контакты</h4>
+            <h4 className="text-paper text-xs tracking-[0.2em] uppercase mb-4">
+              Контакты
+            </h4>
+
             <ul className="space-y-2 text-sm">
               <li>
                 <a
@@ -54,6 +62,7 @@ export default function Footer() {
                   +7 (861) 205-44-80
                 </a>
               </li>
+
               <li>
                 <a
                   href="mailto:info@edgrupp.ru"
@@ -62,21 +71,34 @@ export default function Footer() {
                   info@edgrupp.ru
                 </a>
               </li>
-              <li className="text-gray-500 pt-1">РФ, 350042, г. Краснодар, ул. МОПР, д. 18, этаж 3, пом. 6</li>
+
+              <li className="text-gray-500 pt-1">
+                РФ, 350042, г. Краснодар, ул. МОПР, д. 18, этаж 3, пом. 6
+              </li>
             </ul>
           </div>
 
           {/* Social */}
           <div className="md:col-span-2">
-            <h4 className="text-paper text-xs tracking-[0.2em] uppercase mb-4">Соцсети</h4>
+            <h4 className="text-paper text-xs tracking-[0.2em] uppercase mb-4">
+              Соцсети
+            </h4>
+
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-paper transition-colors interactive-hover">
+                <a
+                  href="#"
+                  className="hover:text-paper transition-colors interactive-hover"
+                >
                   Telegram
                 </a>
               </li>
+
               <li>
-                <a href="#" className="hover:text-paper transition-colors interactive-hover">
+                <a
+                  href="#"
+                  className="hover:text-paper transition-colors interactive-hover"
+                >
                   Max
                 </a>
               </li>
@@ -85,8 +107,34 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs opacity-70">
-          <div>© {new Date().getFullYear()} ED GRUPP. Все права защищены.</div>
-          <div className="flex flex-wrap gap-6">
+
+          <div>
+            © {new Date().getFullYear()} ED GRUPP. Все права защищены.
+          </div>
+
+          <div className="flex flex-wrap items-center gap-6">
+            <a
+              href={`${import.meta.env.BASE_URL}docs/Evrodom_Grupp_Presentation.pdf`}
+              download="ED-GRUPP-презентация.pdf"
+              className="flex items-center gap-1.5 text-sm hover:text-paper transition-colors interactive-hover"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"
+                />
+              </svg>
+
+              Скачать презентацию
+            </a>
+
             <Link
               to="/privacy"
               className="text-sm hover:text-paper transition-colors interactive-hover"
@@ -99,3 +147,4 @@ export default function Footer() {
     </footer>
   )
 }
+
