@@ -138,6 +138,36 @@ export const projects = [
   },
   {
     id: 5,
+    slug: 'tumen-gorod',
+    title: '[Проект Тюмень]',
+    seoTitle: 'Проект в Тюмени — объект ED GRUPP',
+    seoDescription:
+      'Объект ED GRUPP в Тюмени. Описание, площадь и фото обновляются по данным заказчика. Полный цикл строительства «под ключ».',
+    location: 'Тюмень',
+    type: 'Логистика',
+    area: '120 000 м²',
+    status: 'Реализован',
+    year: '',
+    description:
+      'ЖК «Новый» в Волгограде: три жилых дома и подземный паркинг. 131 мкр Дзержинского района, рядом с ТЦ «Мармелад».',
+    image: img('images/projects/tumen-gorod/01.jpg'),
+    gallery: [
+    ],
+    features: [
+      { label: 'Площадь', value: '≈ 120 000 м²' },
+      { label: 'Участок', value: '100 га' },
+      { label: 'Локация', value: 'Тюмень' },
+      { label: 'Статус', value: 'Реализован' },
+    ],
+    stages: [
+      { title: 'Концепция', description: 'Транспортный анализ и мастер-план' },
+      { title: 'Проектирование', description: 'Крупный логистический парк' },
+      { title: 'Строительство', description: 'Поэтапное возведение корпусов' },
+      { title: 'Сдача', description: 'Ввод очередей в эксплуатацию' },
+    ],
+  },
+  {
+    id: 6,
     slug: 'tts-skazka-krasnodar',
     title: 'Торговый центр «Сказка»',
     seoTitle: 'ТЦ «Сказка» — торговый центр в Краснодаре',
@@ -169,8 +199,9 @@ export const projects = [
       { title: 'Сдача', description: 'Ввод в эксплуатацию' },
     ],
   },
+
   {
-    id: 6,
+    id: 7,
     slug: 'zhk-skazka-krasnodar',
     title: 'Жилой комплекс «Сказка»',
     seoTitle: 'Жилой комплекс «Сказка» — элитный дом, Краснодар',
@@ -210,7 +241,7 @@ export const projects = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     slug: 'zhk-galaktika-volgograd',
     title: 'Жилой комплекс «Галактика»',
     seoTitle: 'Жилой комплекс «Галактика» — Волгоград',
@@ -246,7 +277,7 @@ export const projects = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     slug: 'zhk-novyj-volgograd',
     title: 'Жилой комплекс «Новый»',
     seoTitle: 'Жилой комплекс «Новый» — Волгоград, 131 мкр',
@@ -281,7 +312,7 @@ export const projects = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     slug: 'zhk-snegiri-volgograd',
     title: 'Жилой комплекс «Снегири»',
     seoTitle: 'Жилой комплекс «Снегири» — Волгоград',
@@ -316,7 +347,7 @@ export const projects = [
     ],
   },
   {
-    id: 10,
+    id: 11,
     slug: 'azerbaijan-complex',
     title: 'Бакинский объект',
     seoTitle: 'Проект в Азербайджане — международный опыт ED GRUPP',
@@ -348,36 +379,6 @@ export const projects = [
       { title: 'Проектирование', description: 'Документация и инженерия' },
       { title: 'Строительство', description: 'Возведение и сети' },
       { title: 'Сдача', description: 'Ввод «под ключ»' },
-    ],
-  },
-  {
-    id: 11,
-    slug: 'tumen-gorod',
-    title: '[Проект Тюмень]',
-    seoTitle: 'Проект в Тюмени — объект ED GRUPP',
-    seoDescription:
-      'Объект ED GRUPP в Тюмени. Описание, площадь и фото обновляются по данным заказчика. Полный цикл строительства «под ключ».',
-    location: 'Тюмень',
-    type: 'Логистика',
-    area: '120 000 м²',
-    status: 'Реализован',
-    year: '',
-    description:
-      'ЖК «Новый» в Волгограде: три жилых дома и подземный паркинг. 131 мкр Дзержинского района, рядом с ТЦ «Мармелад».',
-    image: img('images/projects/tumen-gorod/01.jpg'),
-    gallery: [
-    ],
-    features: [
-      { label: 'Площадь', value: '≈ 120 000 м²' },
-      { label: 'Участок', value: '100 га' },
-      { label: 'Локация', value: 'Тюмень' },
-      { label: 'Статус', value: 'Реализован' },
-    ],
-    stages: [
-      { title: 'Концепция', description: 'Транспортный анализ и мастер-план' },
-      { title: 'Проектирование', description: 'Крупный логистический парк' },
-      { title: 'Строительство', description: 'Поэтапное возведение корпусов' },
-      { title: 'Сдача', description: 'Ввод очередей в эксплуатацию' },
     ],
   },
 ]
