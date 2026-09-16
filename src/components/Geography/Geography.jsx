@@ -168,7 +168,7 @@ export default function Geography() {
               })}
 
             <div className="text-[10px] tracking-[0.2em] uppercase pt-4 pb-1 px-1" style={{ color: '#D4A24C' }}>
-              Международный опыт
+              Международный проект
             </div>
 
             {regions
