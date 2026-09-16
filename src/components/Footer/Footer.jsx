@@ -4,7 +4,6 @@ const footerLinks = [
   { to: '/projects', label: 'Проекты' },
   { to: '/services', label: 'Услуги' },
   { to: '/about', label: 'О компании' },
-  { to: '/news', label: 'Новости' },
   { to: '/contacts', label: 'Контакты' },
 ]
 
