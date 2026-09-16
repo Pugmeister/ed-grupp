@@ -8,11 +8,9 @@ import Project from './pages/Project/Project'
 import Services from './pages/Services/Services'
 import Service from './pages/Service/Service'
 import About from './pages/About/About'
-import News from './pages/News/News'
 import Contacts from './pages/Contacts/Contacts'
 import ScrollToTop from './components/ScrollToTop'
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import NewsDetail from "./pages/News/NewsDetail.jsx";
 import Privacy from "./pages/Privacy/Privacy.jsx";
 
 function App() {
@@ -29,8 +27,6 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<Service />} />
           <Route path="/about" element={<About />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
