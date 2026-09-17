@@ -249,8 +249,7 @@ export const projects = [
     area: '',
     status: 'Реализован',
     year: '',
-    description:
-      'ЖК «Галактика» в 131 мкр Дзержинского района Волгограда. Комплекс спроектирован с учётом современных технологий и оснащён высококлассными инженерными системами.',
+    description: '',
     image: img('images/projects/zhk-galaktika-volgograd/02.jpg'),
     gallery: [
       img('images/projects/zhk-galaktika-volgograd/02.jpg'),
