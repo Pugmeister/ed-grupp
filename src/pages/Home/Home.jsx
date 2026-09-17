@@ -143,8 +143,10 @@ export default function Home() {
             <span className="block-num vertical-text font-display font-bold text-accent">01</span>
           </div>
 
-          <div className="md:col-span-5 space-y-4 sm:space-y-6 reveal order-2">
-            <h2 className="block-title font-display font-bold">ЛОГИСТИКА</h2>
+          <div className="md:col-span-5 space-y-4 sm:space-y-6 reveal order-2 min-w-0">
+            <h2 className="block-title font-display font-bold break-words leading-[0.95] [text-wrap:balance]">
+              ЛОГИСТИЧЕСКИЕ<br className="hidden md:block" /> ПАРКИ
+            </h2>
             <p className="text-base sm:text-lg text-gray-400 max-w-md leading-relaxed">
               Инфраструктура, которая двигает экономику. Складские комплексы класса А и индустриальные парки.
             </p>
@@ -246,7 +248,7 @@ export default function Home() {
               data-speed="0.1"
             >
               <img
-                src={img('/images/promoshlenost1.jpg')}
+                src={img('images/projects/azerbaijan-complex/01.jpg')}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 alt="Промышленное строительство"
               />

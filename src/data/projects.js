@@ -9,7 +9,7 @@ export const projects = [
     seoDescription:
       'Складской комплекс «Обухово» в Московской области: 3 корпуса, участок 20 га, ≈ 453 000 м². Полный цикл ED GRUPP.',
     location: 'Московская область, р.п. Обухово',
-    type: 'Логистика',
+    type: 'Логистические парки',
     area: '≈ 453 000 м²',
     status: 'Реализован',
     year: '',
@@ -40,7 +40,7 @@ export const projects = [
     seoDescription:
       'Логопарк «Кольцово» в Екатеринбурге: более 90 000 м² складов. Строительство полного цикла ED GRUPP.',
     location: 'Екатеринбург, р-н Октябрьский',
-    type: 'Логистика',
+    type: 'Логистические парки',
     area: 'более 215 000 м²',
     status: 'Реализован',
     year: '',
@@ -75,7 +75,7 @@ export const projects = [
     seoDescription:
       'Складской комплекс «Дорожный» у трассы М4 «Дон»: участок 100 га, ≈ 433 000 м². Логистика полного цикла ED GRUPP.',
     location: 'Ростов-на-Дону',
-    type: 'Логистика',
+    type: 'Логистические парки',
     area: '≈ 433 000 м²',
     status: 'Реализован',
     year: '',
@@ -108,7 +108,7 @@ export const projects = [
     seoDescription:
       'Логопарк «Октябрьский» в Краснодаре на развязке Ростов–Новороссийск–Сочи: 12,7 га, 156 000 м². FixPrice, Holodilnik.ru. Строительство ED GRUPP.',
     location: 'Краснодар',
-    type: 'Логистика',
+    type: 'Логистические парки',
     area: '156 000 м²',
     status: 'Реализован',
     year: '',
@@ -141,7 +141,7 @@ export const projects = [
     seoDescription:
       'Объект ED GRUPP в Тюмени. Описание, площадь и фото обновляются по данным заказчика. Полный цикл строительства «под ключ».',
     location: 'Тюмень',
-    type: 'Логистика',
+    type: 'Логистические парки',
     area: '120 000 м²',
     status: 'Реализован',
     year: '',
@@ -237,7 +237,7 @@ export const projects = [
       { title: 'Сдача', description: 'Передача ключей' },
     ],
   },
-  {
+  /*{
     id: 8,
     slug: 'zhk-galaktika-volgograd',
     title: 'Жилой комплекс «Галактика»',
@@ -271,7 +271,7 @@ export const projects = [
       { title: 'Строительство', description: 'Возведение' },
       { title: 'Сдача', description: 'Ввод в эксплуатацию' },
     ],
-  },
+  },*/
   {
     id: 9,
     slug: 'zhk-novyj-volgograd',
@@ -363,6 +363,10 @@ export const projects = [
       img('images/projects/azerbaijan-complex/03.jpg'),
       img('images/projects/azerbaijan-complex/04.jpg'),
       img('images/projects/azerbaijan-complex/05.jpg'),
+      img('images/projects/azerbaijan-complex/06.jpg'),
+      img('images/projects/azerbaijan-complex/07.jpg'),
+      img('images/projects/azerbaijan-complex/08.jpg'),
+      img('images/projects/azerbaijan-complex/09.jpg'),
     ],
     features: [
       { label: 'Страна', value: 'Азербайджан' },
@@ -381,5 +385,4 @@ export const projects = [
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug)
 
-export const projectTypes = ['Все', 'Логистика', 'Коммерция', 'Жильё', 'Промышленность']
-export const projectStatuses = ['Все', 'Реализован', 'В строительстве', 'Проектирование']
+export const projectTypes = ['Все', 'Логистические парки', 'Коммерция', 'Жильё', 'Промышленность']
