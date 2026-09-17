@@ -258,11 +258,10 @@ export default function Home() {
           </div>
 
           {/* Текст — справа на десктопе */}
-          <div className="md:col-span-5 space-y-4 sm:space-y-6 reveal order-2 flex flex-col items-start md:items-end text-left md:text-right">
-            <h2 className="block-title font-display font-bold">
-              ПРОМЫШЛЕННОЕ
-              <br />
-              СТРОИТЕЛЬСТВО
+          <div className="md:col-span-5 min-w-0 space-y-4 sm:space-y-6 reveal order-2 flex flex-col items-start md:items-end text-left md:text-right">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.95] max-w-full">
+              <span className="block whitespace-nowrap">ПРОМЫШЛЕННОЕ</span>
+              <span className="block whitespace-nowrap">СТРОИТЕЛЬСТВО</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-400 max-w-md leading-relaxed">
               Производственные корпуса, цеха и инженерная инфраструктура.
