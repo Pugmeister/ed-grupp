@@ -81,11 +81,9 @@ export const projects = [
     year: '',
     description:
       'Складской комплекс на пересечении федеральной трассы М4 «Дон» и автодороги Ростов–Волгодонск: выходы на Ростов, Москву, Новороссийск, Волгодонск. Общая площадь участка — 100 га. Планируемая площадь застройки логопарка — порядка 4330 000 м².',
-    image: img('images/projects/sklad-dorozhnyj-rostov/01.jpg'),
+    image: img('images/projects/sklad-dorozhnyj-rostov/10.jpg'),
     gallery: [
-      img('images/projects/sklad-dorozhnyj-rostov/01.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/02.jpg'),
-      img('images/projects/sklad-dorozhnyj-rostov/03.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/10.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/11.jpg'),
     ],
@@ -116,9 +114,8 @@ export const projects = [
     year: '',
     description:
       'Складской комплекс «Октябрьский» на развязке основных транспортных направлений региона Ростов–Новороссийск–Сочи. Площадь участка — 12,7 га, площадь застройки логопарка — 156 000 м². В центре работают Еврономер, FixPrice, Holodilnik.ru и другие.',
-    image: img('images/projects/sklad-oktyabrskij-krasnodar/06.jpg'),
+    image: img('images/projects/sklad-oktyabrskij-krasnodar/01.jpg'),
     gallery: [
-      img('images/projects/sklad-oktyabrskij-krasnodar/06.jpg'),
       img('images/projects/sklad-oktyabrskij-krasnodar/07.jpg'),
       img('images/projects/sklad-oktyabrskij-krasnodar/08.jpg'),
       img('images/projects/sklad-oktyabrskij-krasnodar/10.jpg'),
