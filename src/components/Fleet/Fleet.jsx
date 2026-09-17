@@ -19,7 +19,7 @@ image: img('images/fleets/3.jpg'),
   {
     value: 1,
     label: 'Манипулятор',
-image: img('images/fleets/4.jpg'),
+image: img('images/fleets/6.jpg'),
   },
   {
     value: 4,
@@ -29,7 +29,7 @@ image: img('images/fleets/5.jpg'),
   {
     value: 9,
     label: 'Экскаваторов',
-image: img('images/fleets/6.jpg'),
+image: img('images/fleets/4.jpg'),
   },
   {
     value: 2,
