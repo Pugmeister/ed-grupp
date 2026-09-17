@@ -144,8 +144,9 @@ export default function Home() {
           </div>
 
           <div className="md:col-span-5 space-y-4 sm:space-y-6 reveal order-2 min-w-0">
-            <h2 className="block-title font-display font-bold break-words leading-[0.95] [text-wrap:balance]">
-              ЛОГИСТИЧЕСКИЕ<br className="hidden md:block" /> ПАРКИ
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.95]">
+              <span className="block whitespace-nowrap">ЛОГИСТИЧЕСКИЕ</span>
+              <span className="block whitespace-nowrap">ПАРКИ</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-400 max-w-md leading-relaxed">
               Инфраструктура, которая двигает экономику. Складские комплексы класса А и индустриальные парки.
@@ -163,7 +164,7 @@ export default function Home() {
               <img
                 src={img('images/logistics.jpg')}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                alt="Логистика"
+                alt="Логистические парки"
               />
             </div>
             <div className="absolute -bottom-6 -left-6 sm:-bottom-10 sm:-left-10 w-24 h-24 sm:w-40 sm:h-40 border border-accent z-[-1]" />
