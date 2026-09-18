@@ -10,7 +10,7 @@ export const projects = [
       'Складской комплекс «Обухово» в Московской области: 3 корпуса, участок 20 га, ≈ 453 000 м². Полный цикл ED GRUPP.',
     location: 'Московская область, р.п. Обухово',
     type: 'Логистические парки',
-    area: '≈ 453 000 м²',
+    area: '≈ 1 000 000 м²',
     status: 'Реализован',
     year: '',
     description:
@@ -20,7 +20,7 @@ export const projects = [
       img('images/projects/sklad-obuhovo-moskva/02.jpg'),
     ],
     features: [
-      { label: 'Площадь', value: '≈ 453 000 м²' },
+      { label: 'Площадь', value: '≈ 1 000 000 м²' },
       { label: 'Участок', value: '20 га' },
       { label: 'Тип', value: 'Склады класса А' },
       { label: 'Статус', value: 'Реализован' },
@@ -48,11 +48,9 @@ export const projects = [
       'Складской комплекс расположен в г. Екатеринбург, р-н Октябрьский, восточнее п. Кольцово. Площадь складских комплексов — более 215 000 м².',
     image: img('images/projects/sklad-koltsovo-ekaterinburg/04.jpg'),
     gallery: [
-      img('images/projects/sklad-koltsovo-ekaterinburg/04.jpg'),
 
       img('images/projects/sklad-koltsovo-ekaterinburg/04.jpg'),
       img('images/projects/sklad-koltsovo-ekaterinburg/11.jpg'),
-      img('images/projects/sklad-koltsovo-ekaterinburg/12.jpg'),
     ],
     features: [
       { label: 'Площадь', value: 'более 215 000 м²' },
@@ -81,8 +79,9 @@ export const projects = [
     year: '',
     description:
       'Складской комплекс на пересечении федеральной трассы М4 «Дон» и автодороги Ростов–Волгодонск: выходы на Ростов, Москву, Новороссийск, Волгодонск. Общая площадь участка — 100 га. Планируемая площадь застройки логопарка — порядка 4330 000 м².',
-    image: img('images/projects/sklad-dorozhnyj-rostov/10.jpg'),
+    image: img('images/projects/sklad-dorozhnyj-rostov/01.jpg'),
     gallery: [
+      img('images/projects/sklad-dorozhnyj-rostov/01.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/02.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/10.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/11.jpg'),
