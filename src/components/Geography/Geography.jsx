@@ -26,6 +26,7 @@ export default function Geography() {
   const [indicator, setIndicator] = useState({ top: 0, height: 0 })
 
   const mapGroupRef = useRef(null)
+  const mapAnchorRef = useRef(null)
   const sectionRef = useRef(null)
   const listRef = useRef(null)
   const itemRefs = useRef({})
@@ -96,6 +97,16 @@ export default function Geography() {
     }
   }, [activeId])
 
+  // Выбор региона: на мобиле/планшете (где список и карта идут друг под
+  // другом, а не рядом) плавно подскролливаем к карте, чтобы результат тапа
+  // сразу было видно, а не приходилось скроллить самому.
+  const selectRegion = (id) => {
+    setActiveId(id)
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      mapAnchorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
   return (
     <section ref={sectionRef} className="py-20 sm:py-28 px-5 sm:px-6 md:px-12 bg-ink overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -108,119 +119,13 @@ export default function Geography() {
           </p>
         </div>
 
+        {/* На мобиле/планшете карта идёт первой (order-1) — это самый
+            эффектный элемент блока, не стоит прятать его под длинным
+            списком. На lg возвращаем классическую раскладку список слева /
+            карта справа. */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          <div ref={listRef} className="relative lg:col-span-5 space-y-3">
-            {/* Бегунок — единая полоса-индикатор вместо рамки на каждом пункте */}
-            <div
-              className="hidden lg:block absolute left-0 w-[2px] bg-accent rounded-full transition-all duration-500 ease-out"
-              style={{ top: indicator.top, height: indicator.height }}
-            />
-
-            <div className="text-[10px] tracking-[0.2em] uppercase text-gray-500 px-1 pb-1">
-              Россия
-            </div>
-
-            {regions
-              .filter((r) => r.group !== 'intl')
-              .map((region) => {
-                const isActive = region.id === activeId
-                return (
-                  <button
-                    key={region.id}
-                    ref={(el) => {
-                      itemRefs.current[region.id] = el
-                    }}
-                    type="button"
-                    onClick={() => setActiveId(region.id)}
-                    onMouseEnter={() => setHoveredId(region.id)}
-                    onMouseLeave={() => setHoveredId((h) => (h === region.id ? null : h))}
-                    className={`w-full text-left p-5 sm:p-6 lg:pl-7 border transition-all duration-300 interactive-hover ${
-                      isActive
-                        ? 'border-accent/40 bg-accent/10'
-                        : 'border-white/10 hover:border-white/30'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors duration-300"
-                          style={{ backgroundColor: isActive ? '#FF3B30' : 'rgba(244,244,240,0.3)' }}
-                        />
-                        <div>
-                          <span className="font-display text-xl sm:text-2xl font-bold text-paper block">
-                            {region.name}
-                          </span>
-                          {isActive && (
-                            <p className="mt-2 text-sm text-gray-400">{region.description}</p>
-                          )}
-                        </div>
-                      </div>
-                      <span
-                        className={`text-2xl shrink-0 transition-colors duration-300 ${
-                          isActive ? 'text-accent' : 'text-white/20'
-                        }`}
-                      >
-                        →
-                      </span>
-                    </div>
-                  </button>
-                )
-              })}
-
-            <div className="text-[10px] tracking-[0.2em] uppercase pt-4 pb-1 px-1" style={{ color: '#D4A24C' }}>
-              Международный проект
-            </div>
-
-            {regions
-              .filter((r) => r.group === 'intl')
-              .map((region) => {
-                const isActive = region.id === activeId
-                return (
-                  <button
-                    key={region.id}
-                    ref={(el) => {
-                      itemRefs.current[region.id] = el
-                    }}
-                    type="button"
-                    onClick={() => setActiveId(region.id)}
-                    onMouseEnter={() => setHoveredId(region.id)}
-                    onMouseLeave={() => setHoveredId((h) => (h === region.id ? null : h))}
-                    className={`w-full text-left p-5 sm:p-6 lg:pl-7 border transition-all duration-300 interactive-hover ${
-                      isActive
-                        ? 'border-accent/40 bg-accent/10'
-                        : 'border-white/10 hover:border-white/30'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors duration-300"
-                          style={{ backgroundColor: isActive ? '#FF3B30' : '#D4A24C' }}
-                        />
-                        <div>
-                          <span className="font-display text-xl sm:text-2xl font-bold text-paper block">
-                            {region.name}
-                          </span>
-                          {isActive && (
-                            <p className="mt-2 text-sm text-gray-400">{region.description}</p>
-                          )}
-                        </div>
-                      </div>
-                      <span
-                        className={`text-2xl shrink-0 transition-colors duration-300 ${
-                          isActive ? 'text-accent' : 'text-white/20'
-                        }`}
-                      >
-                        →
-                      </span>
-                    </div>
-                  </button>
-                )
-              })}
-          </div>
-
-          <div className="lg:col-span-7 relative">
-            <div className="relative aspect-[4/3] sm:aspect-[16/10] bg-[#0a0a0a] border border-white/10 overflow-hidden">
+          <div className="lg:col-span-7 relative order-1 lg:order-2" ref={mapAnchorRef}>
+            <div className="relative aspect-[3/4] xs:aspect-square sm:aspect-[16/10] bg-[#0a0a0a] border border-white/10 overflow-hidden">
               <div
                 className="absolute inset-0 opacity-[0.04] pointer-events-none"
                 style={{
@@ -414,7 +319,7 @@ export default function Geography() {
                     return (
                       <g
                         key={region.id}
-                        onClick={() => setActiveId(region.id)}
+                        onClick={() => selectRegion(region.id)}
                         onMouseEnter={() => setHoveredId(region.id)}
                         onMouseLeave={() => setHoveredId((h) => (h === region.id ? null : h))}
                         style={{
@@ -450,6 +355,18 @@ export default function Geography() {
                           />
                         )}
 
+                        {/* Невидимый круг покрупнее — увеличивает хитбокс тапа/клика
+                            без изменения видимого размера маркера. На тач-экранах
+                            маленькие точки на карте иначе почти невозможно
+                            попасть пальцем. */}
+                        <circle
+                          cx={region.coords.x}
+                          cy={region.coords.y}
+                          r={18}
+                          fill="transparent"
+                          style={{ pointerEvents: 'all' }}
+                        />
+
                         <circle
                           cx={region.coords.x}
                           cy={region.coords.y}
@@ -481,8 +398,12 @@ export default function Geography() {
                 </g>
               </svg>
 
+              {/* На lg плашка остаётся плавающей поверх карты (как и раньше).
+                  На мобиле/планшете она уезжает под карту отдельным блоком
+                  (см. div ниже) — оверлей на маленьком экране закрывал бы
+                  маркеры и линии маршрутов, которые вы же анимируете. */}
               {active && (
-                <div className="absolute bottom-4 right-4 max-w-[220px] sm:bottom-6 sm:right-6 sm:max-w-[280px] bg-ink/95 border border-white/10 p-5 backdrop-blur-md z-20 transition-all duration-500">
+                <div className="hidden lg:block absolute bottom-6 right-6 max-w-[280px] bg-ink/95 border border-white/10 p-5 backdrop-blur-md z-20 transition-all duration-500">
                   <div className="text-[10px] tracking-[0.2em] uppercase text-accent mb-1.5">
                     Регион
                   </div>
@@ -509,6 +430,146 @@ export default function Geography() {
                 </div>
               )}
             </div>
+
+            {/* Мобильная/планшетная версия карточки региона — идёт сразу под
+                картой, полной ширины, ничего не перекрывает. */}
+            {active && (
+              <div className="lg:hidden mt-4 bg-ink/95 border border-white/10 p-5 transition-all duration-500">
+                <div className="text-[10px] tracking-[0.2em] uppercase text-accent mb-1.5">
+                  Регион
+                </div>
+                <div className="font-display text-xl font-bold text-paper mb-1 leading-tight">
+                  {active.name}
+                </div>
+                <p className="text-sm text-gray-400 mb-4">{active.description}</p>
+
+                {activeProject ? (
+                  <Link
+                    to={`/projects/${active.projectSlug}`}
+                    className="inline-flex items-center gap-2 text-sm border-b border-paper pb-0.5 hover:text-accent hover:border-accent transition-colors"
+                  >
+                    {activeProject.title} →
+                  </Link>
+                ) : (
+                  <Link
+                    to="/projects"
+                    className="inline-flex items-center gap-2 text-sm border-b border-paper pb-0.5 hover:text-accent hover:border-accent transition-colors"
+                  >
+                    Смотреть проекты →
+                  </Link>
+                )}
+              </div>
+            )}
+          </div>
+
+          <div ref={listRef} className="relative lg:col-span-5 space-y-3 order-2 lg:order-1">
+            {/* Бегунок — единая полоса-индикатор вместо рамки на каждом пункте */}
+            <div
+              className="hidden lg:block absolute left-0 w-[2px] bg-accent rounded-full transition-all duration-500 ease-out"
+              style={{ top: indicator.top, height: indicator.height }}
+            />
+
+            <div className="text-[10px] tracking-[0.2em] uppercase text-gray-500 px-1 pb-1">
+              Россия
+            </div>
+
+            {regions
+              .filter((r) => r.group !== 'intl')
+              .map((region) => {
+                const isActive = region.id === activeId
+                return (
+                  <button
+                    key={region.id}
+                    ref={(el) => {
+                      itemRefs.current[region.id] = el
+                    }}
+                    type="button"
+                    onClick={() => selectRegion(region.id)}
+                    onMouseEnter={() => setHoveredId(region.id)}
+                    onMouseLeave={() => setHoveredId((h) => (h === region.id ? null : h))}
+                    className={`w-full text-left p-5 sm:p-6 lg:pl-7 border transition-all duration-300 interactive-hover ${
+                      isActive
+                        ? 'border-accent/40 bg-accent/10'
+                        : 'border-white/10 hover:border-white/30'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors duration-300"
+                          style={{ backgroundColor: isActive ? '#FF3B30' : 'rgba(244,244,240,0.3)' }}
+                        />
+                        <div>
+                          <span className="font-display text-xl sm:text-2xl font-bold text-paper block">
+                            {region.name}
+                          </span>
+                          {isActive && (
+                            <p className="mt-2 text-sm text-gray-400">{region.description}</p>
+                          )}
+                        </div>
+                      </div>
+                      <span
+                        className={`text-2xl shrink-0 transition-colors duration-300 ${
+                          isActive ? 'text-accent' : 'text-white/20'
+                        }`}
+                      >
+                        →
+                      </span>
+                    </div>
+                  </button>
+                )
+              })}
+
+            <div className="text-[10px] tracking-[0.2em] uppercase pt-4 pb-1 px-1" style={{ color: '#D4A24C' }}>
+              Международный проект
+            </div>
+
+            {regions
+              .filter((r) => r.group === 'intl')
+              .map((region) => {
+                const isActive = region.id === activeId
+                return (
+                  <button
+                    key={region.id}
+                    ref={(el) => {
+                      itemRefs.current[region.id] = el
+                    }}
+                    type="button"
+                    onClick={() => selectRegion(region.id)}
+                    onMouseEnter={() => setHoveredId(region.id)}
+                    onMouseLeave={() => setHoveredId((h) => (h === region.id ? null : h))}
+                    className={`w-full text-left p-5 sm:p-6 lg:pl-7 border transition-all duration-300 interactive-hover ${
+                      isActive
+                        ? 'border-accent/40 bg-accent/10'
+                        : 'border-white/10 hover:border-white/30'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors duration-300"
+                          style={{ backgroundColor: isActive ? '#FF3B30' : '#D4A24C' }}
+                        />
+                        <div>
+                          <span className="font-display text-xl sm:text-2xl font-bold text-paper block">
+                            {region.name}
+                          </span>
+                          {isActive && (
+                            <p className="mt-2 text-sm text-gray-400">{region.description}</p>
+                          )}
+                        </div>
+                      </div>
+                      <span
+                        className={`text-2xl shrink-0 transition-colors duration-300 ${
+                          isActive ? 'text-accent' : 'text-white/20'
+                        }`}
+                      >
+                        →
+                      </span>
+                    </div>
+                  </button>
+                )
+              })}
           </div>
         </div>
       </div>
