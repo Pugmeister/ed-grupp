@@ -26,12 +26,22 @@ export default function Projects() {
         description="Реализованные объекты: склады класса А, ТЦ «Сказка», ЖК в Краснодаре и Волгограде. Фильтр по типу. Полный цикл строительства."
       />
       <div className="max-w-7xl mx-auto">
-        <header className="mb-12 sm:mb-16">
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">
+        <header className="mb-12 sm:mb-16 max-w-3xl">
+          <p className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+            Портфолио
+          </p>
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
             ПРОЕКТЫ
           </h1>
-          <p className="text-gray-400 max-w-xl text-base sm:text-lg">
-            Реализованные и текущие объекты. Фильтруйте по типу.
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
+            Реализованные объекты полного цикла: логистические комплексы класса&nbsp;А,
+            коммерция, жильё и промышленность. От мастер-плана до ввода в эксплуатацию —
+            с одной командой и понятной зоной ответственности.
+          </p>
+          <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl">
+            В каталоге — склады в Московской области, Екатеринбурге, Ростове и Краснодаре,
+            ТЦ «Сказка», жилые комплексы в Краснодаре и Волгограде, а также международный
+            опыт. Фильтр по типу объекта поможет быстро найти нужное направление.
           </p>
         </header>
 

@@ -10,13 +10,22 @@ export default function Services() {
         description="Четыре направления ED GRUPP: склады класса А, торговые центры, жилые комплексы и промышленные корпуса. Полный цикл «под ключ»."
       />
       <div className="max-w-7xl mx-auto">
-        <header className="mb-14 sm:mb-20">
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">
+        <header className="mb-14 sm:mb-20 max-w-3xl">
+          <p className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+            Направления
+          </p>
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
             УСЛУГИ
           </h1>
-          <p className="text-gray-400 max-w-xl text-base sm:text-lg leading-relaxed">
-            Четыре направления — один стандарт работы.
-            Логистика, коммерция, жильё и промышленность: полный цикл от концепции до ввода.
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
+            Четыре направления — один стандарт работы. Логистические парки класса&nbsp;А,
+            коммерция, жилищное и промышленное строительство: полный цикл от концепции
+            и проектирования до ввода объекта «под ключ».
+          </p>
+          <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl">
+            Заказчик работает с одной командой на всём пути: участок, каркас, инженерия,
+            сроки и сдача. Ниже — каждое направление подробнее, с процессом работ и
+            примерами реализованных объектов.
           </p>
         </header>
 
