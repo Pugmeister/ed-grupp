@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { img } from '../../utils/asset'
 import { projects } from '../../data/projects'
@@ -7,9 +7,43 @@ import Geography from '../../components/Geography/Geography'
 import Fleet from "../../components/Fleet/Fleet.jsx";
 import Seo from "../../components/Seo/Seo.jsx";
 
+const PROCESS_CARDS = [
+  {
+    num: '01',
+    title: 'КОНЦЕПЦИЯ',
+    text: 'Анализ участка, финансовая модель и архитектурное видение.',
+    img: img('images/fleet-grader.jpg'),
+  },
+  {
+    num: '02',
+    title: 'ПРОЕКТИРОВАНИЕ',
+    text: 'Детальная проработка BIM-моделей и инженерных систем.',
+    img: img('images/commercial.jpg'),
+  },
+  {
+    num: '03',
+    title: 'СТРОИТЕЛЬСТВО',
+    text: 'Контроль качества, соблюдение сроков и бюджетная дисциплина.',
+    img: img('images/logistics.jpg'),
+  },
+  {
+    num: '04',
+    title: 'СДАЧА',
+    text: 'Ввод в эксплуатацию и передача готового актива инвестору.',
+    img: img('images/residential.jpg'),
+  },
+]
+
+// Ниже этой ширины scroll-jack (пиннинг секции + JS-transform трека)
+// отключается, и .horizontal-track становится обычным горизонтальным
+// scroll-snap списком — см. updateHorizontal() и синхронный CSS-брейкпоинт
+// в index.css (@media (max-width: 1023px)).
+const HORIZONTAL_PIN_BREAKPOINT = 1024
+
 export default function Home() {
   const horizontalTrackRef = useRef(null)
   const processSectionRef = useRef(null)
+  const [activeCardIndex, setActiveCardIndex] = useState(0)
 
   useEffect(() => {
     // Parallax
@@ -46,6 +80,15 @@ export default function Home() {
       const section = processSectionRef.current
       const track = horizontalTrackRef.current
       if (!section || !track) return
+
+      // На мобиле/планшете секция не "пинится" вертикальным скроллом —
+      // карточки листаются нативным горизонтальным свайпом (scroll-snap,
+      // см. index.css). Сбрасываем transform на случай, если он остался
+      // с предыдущей ширины экрана (поворот устройства, ресайз окна).
+      if (window.innerWidth < HORIZONTAL_PIN_BREAKPOINT) {
+        if (track.style.transform) track.style.transform = ''
+        return
+      }
 
       const rect = section.getBoundingClientRect()
       const sectionHeight = section.offsetHeight
@@ -89,6 +132,30 @@ export default function Home() {
       window.removeEventListener('scroll', onScroll)
       observer.disconnect()
     }
+  }, [])
+
+  // Точки-индикатор под треком (видны только < lg, см. className ниже) —
+  // синхронизируются с нативным горизонтальным скроллом самого трека,
+  // независимо от эффекта выше, который на этих ширинах ничего не делает.
+  useEffect(() => {
+    const track = horizontalTrackRef.current
+    if (!track) return
+
+    const onTrackScroll = () => {
+      if (window.innerWidth >= HORIZONTAL_PIN_BREAKPOINT) return
+      const cardEl = track.querySelector('.process-card')
+      if (!cardEl) return
+      const cardWidth = cardEl.getBoundingClientRect().width
+      const trackStyles = window.getComputedStyle(track)
+      const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0') || 0
+      const step = cardWidth + gap
+      if (step <= 0) return
+      const index = Math.round(track.scrollLeft / step)
+      setActiveCardIndex(Math.min(PROCESS_CARDS.length - 1, Math.max(0, index)))
+    }
+
+    track.addEventListener('scroll', onTrackScroll, { passive: true })
+    return () => track.removeEventListener('scroll', onTrackScroll)
   }, [])
 
   const featuredProjects = projects.slice(0, 3)
@@ -284,10 +351,12 @@ export default function Home() {
       {/* 3. FROM IDEA → TO REALITY */}
       <section className="horizontal-wrapper bg-ink text-paper" id="process-section" ref={processSectionRef}>
         <div className="horizontal-sticky">
-          {/* добавляем градиент-подложку под заголовок */}
-          <div className="absolute top-0 left-0 w-full h-[45%] sm:h-[55%] bg-gradient-to-b from-ink/90 via-ink/40 to-transparent z-10 pointer-events-none" />
+          {/* Градиент-подложка под заголовок — актуальна только для
+              запиненного (lg+) режима, на мобиле/планшете заголовок в
+              обычном потоке и подложка не нужна. */}
+          <div className="hidden lg:block absolute top-0 left-0 w-full h-[45%] sm:h-[55%] bg-gradient-to-b from-ink/90 via-ink/40 to-transparent z-10 pointer-events-none" />
 
-          <div className="absolute top-4 left-5 sm:top-10 sm:left-8 md:left-20 z-20 max-w-[min(90vw,28rem)]">
+          <div className="relative lg:absolute lg:top-10 lg:left-8 xl:left-20 z-20 max-w-[min(90vw,28rem)] px-5 sm:px-6 pt-14 pb-6 lg:px-0 lg:pt-0 lg:pb-0">
             <h3 className="process-heading font-display font-bold leading-tight">
               ОТ ИДЕИ <span className="text-accent">→</span> К РЕАЛИЗАЦИИ
             </h3>
@@ -296,33 +365,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="horizontal-track" id="horizontal-track" ref={horizontalTrackRef}>
-            {[
-              {
-                num: '01',
-                title: 'КОНЦЕПЦИЯ',
-                text: 'Анализ участка, финансовая модель и архитектурное видение.',
-                img: img('images/fleet-grader.jpg'),
-              },
-              {
-                num: '02',
-                title: 'ПРОЕКТИРОВАНИЕ',
-                text: 'Детальная проработка BIM-моделей и инженерных систем.',
-                img: img('images/commercial.jpg'),
-              },
-              {
-                num: '03',
-                title: 'СТРОИТЕЛЬСТВО',
-                text: 'Контроль качества, соблюдение сроков и бюджетная дисциплина.',
-                img: img('images/logistics.jpg'),
-              },
-              {
-                num: '04',
-                title: 'СДАЧА',
-                text: 'Ввод в эксплуатацию и передача готового актива инвестору.',
-                img: img('images/residential.jpg'),
-              },
-            ].map((card) => (
+          <div
+            className="horizontal-track no-scrollbar"
+            id="horizontal-track"
+            ref={horizontalTrackRef}
+          >
+            {PROCESS_CARDS.map((card) => (
               <div key={card.num} className="process-card relative group interactive-hover overflow-hidden">
                 <img
                   src={card.img}
@@ -341,6 +389,21 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Точки-индикатор шага — только на мобиле/планшете, где карточки
+              листаются нативным свайпом, а не JS-transform по вертикальному
+              скроллу. Явно показывают, что карточек несколько и на каком
+              шаге сейчас находится пользователь. */}
+          <div className="flex lg:hidden justify-center items-center gap-2 mt-5 px-5">
+            {PROCESS_CARDS.map((card, i) => (
+              <span
+                key={card.num}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === activeCardIndex ? 'w-6 bg-accent' : 'w-1.5 bg-white/25'
+                }`}
+              />
             ))}
           </div>
         </div>

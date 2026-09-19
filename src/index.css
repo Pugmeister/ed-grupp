@@ -137,6 +137,12 @@ body {
 }
 
 /* ========== HORIZONTAL PROCESS ========== */
+/* Начиная с lg (>=1024px) секция "пинится" (position: sticky) и трек двигается
+   через JS-transform, синхронизированный с вертикальным скроллом — см.
+   updateHorizontal() в Home.jsx. Ниже 1024px эта механика полностью
+   отключается в JS (там же), а здесь трек превращается в обычный
+   горизонтальный список со scroll-snap — см. блок @media (max-width: 1023px)
+   ниже, он переопределяет .horizontal-wrapper/.horizontal-sticky/.horizontal-track. */
 .horizontal-wrapper {
   height: 350vh;
   position: relative;
@@ -168,6 +174,33 @@ body {
   font-size: clamp(3.5rem, 8vw, 5.5rem);
 }
 
+/* Ниже lg (1024px) отключаем scroll-jack: секция больше не растянута на
+   несколько высот экрана, sticky снят, трек скроллится нативно пальцем со
+   scroll-snap по карточкам. Card peek (следующая карточка чуть видна
+   справа) уже даёт понять, что можно листать дальше — see .process-card
+   width в блоках TABLET/MOBILE ниже. */
+@media (max-width: 1023px) {
+  .horizontal-wrapper {
+    height: auto;
+  }
+  .horizontal-sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+    display: block;
+    padding: 5rem 0 2.5rem;
+  }
+  .horizontal-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    transform: none !important;
+  }
+  .process-card {
+    scroll-snap-align: start;
+  }
+}
+
 /* ========== MEGA CTA ========== */
 .cta-title {
   font-size: clamp(2.5rem, 12vw, 9rem);
@@ -181,12 +214,10 @@ body {
     height: 58vh;
     min-height: 360px;
   }
-  .horizontal-wrapper { height: 320vh; }
 }
 
 /* ========== MOBILE ========== */
 @media (max-width: 767px) {
-  .horizontal-wrapper { height: 260vh; }
   .horizontal-track {
     gap: 5vw;
     padding: 0 5vw;
@@ -195,10 +226,6 @@ body {
     width: 82vw;
     height: 52vh;
     min-height: 320px;
-  }
-  .horizontal-sticky {
-    align-items: flex-end;
-    padding-bottom: 8vh;
   }
   .section-num-bg { opacity: 0.06; }
 }
@@ -217,7 +244,6 @@ body {
 
 /* Landscape phones */
 @media (max-height: 500px) and (orientation: landscape) {
-  .horizontal-wrapper { height: 400vh; }
   .process-card {
     height: 75vh;
     min-height: 240px;
