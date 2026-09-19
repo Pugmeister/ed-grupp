@@ -3,6 +3,7 @@ import { projects, projectTypes } from '../../data/projects'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import ProjectFilter from '../../components/ProjectFilter/ProjectFilter'
 import Seo from "../../components/Seo/Seo.jsx";
+import BuildSketch from "../../components/BuildSketch/BuildSketch.jsx";
 
 export default function Projects() {
   const [type, setType] = useState('Все')
@@ -61,6 +62,7 @@ export default function Projects() {
             ))}
           </div>
         )}
+        <BuildSketch />
       </div>
     </div>
   )
