@@ -18,6 +18,8 @@ export const projects = [
     image: img('images/projects/sklad-obuhovo-moskva/01.jpg'),
     gallery: [
       img('images/projects/sklad-obuhovo-moskva/02.jpg'),
+      img('images/projects/sklad-obuhovo-moskva/13.jpg'),
+      img('images/projects/sklad-obuhovo-moskva/14.jpg'),
     ],
     features: [
       { label: 'Площадь', value: '≈ 1 000 000 м²' },
