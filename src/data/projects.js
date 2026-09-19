@@ -46,7 +46,7 @@ export const projects = [
     year: '',
     description:
       'Складской комплекс расположен в г. Екатеринбург, р-н Октябрьский, восточнее п. Кольцово. Площадь складских комплексов — более 215 000 м².',
-    image: img('images/projects/sklad-koltsovo-ekaterinburg/04.jpg'),
+    image: img('images/projects/sklad-koltsovo-ekaterinburg/01.jpg'),
     gallery: [
 
       img('images/projects/sklad-koltsovo-ekaterinburg/04.jpg'),
@@ -83,6 +83,8 @@ export const projects = [
     gallery: [
       img('images/projects/sklad-dorozhnyj-rostov/01.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/02.jpg'),
+      img('images/projects/sklad-dorozhnyj-rostov/04.jpg'),
+      img('images/projects/sklad-dorozhnyj-rostov/05.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/10.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/11.jpg'),
     ],
@@ -343,6 +345,37 @@ export const projects = [
   },
   {
     id: 11,
+    slug: 'sklad-bristol-krasnodar',
+    title: 'Складской комплекс «Бристоль»',
+    seoTitle: 'Складской комплекс «Бристоль» — Краснодар',
+    seoDescription:
+      'Складской комплекс «Бристоль» в Краснодаре: логистика полного цикла от ED GRUPP. Площадь и параметры участка — по данным заказчика.',
+    location: 'Краснодар',
+    type: 'Логистические парки',
+    area: '',
+    status: 'Реализован',
+    year: '',
+    description:
+      'Складской комплекс «Бристоль» в Краснодаре. Детали объекта, площадь и параметры. Полный цикл строительства «под ключ» от ED GRUPP.',
+    image: img('images/projects/sklad-bristol-krasnodar/01.jpg'),
+    gallery: [
+      img('images/projects/sklad-bristol-krasnodar/01.jpg'),
+    ],
+    features: [
+      { label: 'Площадь', value: '' },
+      { label: 'Участок', value: '' },
+      { label: 'Тип', value: 'Склады класса А' },
+      { label: 'Статус', value: 'Реализован' },
+    ],
+    stages: [
+      { title: 'Концепция', description: 'Анализ участка и планировка логистического парка' },
+      { title: 'Проектирование', description: 'Рабочая документация и инженерные системы' },
+      { title: 'Строительство', description: 'Возведение складских корпусов' },
+      { title: 'Сдача', description: 'Ввод в эксплуатацию' },
+    ],
+  },
+  {
+    id: 12,
     slug: 'azerbaijan-complex',
     title: 'Бакинский объект',
     seoTitle: 'Проект в Азербайджане — международный опыт ED GRUPP',
