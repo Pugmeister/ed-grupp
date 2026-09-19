@@ -467,6 +467,7 @@ export default function Home() {
             </svg>
           </Link>
         </div>
+        <p>test</p>
       </section>
     </>
   )
