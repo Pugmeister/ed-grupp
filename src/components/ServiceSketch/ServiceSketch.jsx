@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 
-const CYCLE = '12s'
-
 const STAGES = [
   { n: '01', title: 'Концепция', sub: 'Участок, ТЗ, экономика' },
   { n: '02', title: 'Проект', sub: 'Документация и инженерия' },
@@ -9,80 +7,94 @@ const STAGES = [
   { n: '04', title: 'Сдача', sub: 'Ввод «под ключ»' },
 ]
 
+/** доли пути, где стоят узлы (0…1) */
+const STOPS = [0, 1 / 3, 2 / 3, 1]
+
+const CYCLE_MS = 11000
+const DRAW_MS = 7500   // линия идёт
+const HOLD_MS = 2000   // пауза на финише
+// остаток — сброс / пауза перед повтором
+
 export default function ServiceSketch() {
   const ref = useRef(null)
-  const [active, setActive] = useState(false)
+  const [inView, setInView] = useState(false)
+  const [reduced, setReduced] = useState(false)
+  const [progress, setProgress] = useState(0) // 0…1 линия
+  const [activeStage, setActiveStage] = useState(0)
+  const rafRef = useRef(0)
+  const startRef = useRef(0)
 
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const syncMq = () => setReduced(mq.matches)
+    syncMq()
+    mq.addEventListener?.('change', syncMq)
+
     const el = ref.current
-    if (!el) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setActive(true)
-      return
+    if (!el) return () => mq.removeEventListener?.('change', syncMq)
+
+    if (mq.matches) {
+      setInView(true)
+      setProgress(1)
+      setActiveStage(3)
+      return () => mq.removeEventListener?.('change', syncMq)
     }
+
     const io = new IntersectionObserver(
-      ([e]) => setActive(e.isIntersecting),
-      { threshold: 0.3 }
+      ([e]) => setInView(e.isIntersecting),
+      { threshold: 0.25 }
     )
     io.observe(el)
-    return () => io.disconnect()
+    return () => {
+      io.disconnect()
+      mq.removeEventListener?.('change', syncMq)
+    }
   }, [])
 
-  const lineStyle = active
-    ? {
-      animation: `svc-line ${CYCLE} cubic-bezier(0.16, 1, 0.3, 1) infinite`,
+  useEffect(() => {
+    if (!inView || reduced) return
+
+    const tick = (now) => {
+      if (!startRef.current) startRef.current = now
+      const t = (now - startRef.current) % CYCLE_MS
+
+      let p = 0
+      if (t < DRAW_MS) {
+        // ease-out линия
+        const x = t / DRAW_MS
+        p = 1 - (1 - x) * (1 - x)
+      } else if (t < DRAW_MS + HOLD_MS) {
+        p = 1
+      } else {
+        p = 0
+      }
+
+      setProgress(p)
+
+      // активный этап = последний достигнутый стоп
+      let stage = 0
+      for (let i = 0; i < STOPS.length; i++) {
+        if (p + 0.001 >= STOPS[i]) stage = i
+      }
+      // на сбросе — ничего не подсвечиваем ярко
+      if (t >= DRAW_MS + HOLD_MS) stage = -1
+      setActiveStage(stage)
+
+      rafRef.current = requestAnimationFrame(tick)
     }
-    : { strokeDashoffset: 1, opacity: 0.25 }
 
-  const nodeStyle = (i) =>
-    active
-      ? {
-        animation: `svc-node ${CYCLE} cubic-bezier(0.16, 1, 0.3, 1) infinite`,
-        animationDelay: `${0.35 + i * 0.55}s`,
-      }
-      : { opacity: 0.25, transform: 'scale(0.6)' }
+    startRef.current = 0
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [inView, reduced])
 
-  const labelStyle = (i) =>
-    active
-      ? {
-        animation: `svc-label ${CYCLE} cubic-bezier(0.16, 1, 0.3, 1) infinite`,
-        animationDelay: `${0.45 + i * 0.55}s`,
-      }
-      : { opacity: 0.3 }
+  const xAt = (p) => 40 + p * 720
 
   return (
-    <section ref={ref} className="mt-20 sm:mt-28 pt-16 sm:pt-20 border-t border-white/10">
-      <style>{`
-        @keyframes svc-line {
-          0%   { stroke-dashoffset: 1; opacity: 0.3; }
-          12%  { opacity: 1; }
-          48%  { stroke-dashoffset: 0; opacity: 1; }
-          72%  { stroke-dashoffset: 0; opacity: 1; }
-          90%  { stroke-dashoffset: 1; opacity: 0.2; }
-          100% { stroke-dashoffset: 1; opacity: 0.2; }
-        }
-        @keyframes svc-node {
-          0%, 8%     { opacity: 0.2; transform: scale(0.5); }
-          18%, 72%   { opacity: 1; transform: scale(1); }
-          88%, 100%  { opacity: 0.2; transform: scale(0.5); }
-        }
-        @keyframes svc-label {
-          0%, 10%    { opacity: 0.25; }
-          22%, 72%   { opacity: 1; }
-          88%, 100%  { opacity: 0.25; }
-        }
-        @keyframes svc-dot {
-          0%   { offset-distance: 0%; opacity: 0; }
-          10%  { opacity: 1; }
-          48%  { offset-distance: 100%; opacity: 1; }
-          55%  { opacity: 0; }
-          100% { offset-distance: 100%; opacity: 0; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .svc-anim { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; transform: none !important; }
-        }
-      `}</style>
-
+    <section
+      ref={ref}
+      className="mt-20 sm:mt-28 pt-16 sm:pt-20 border-t border-white/10"
+    >
       <p className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
         Полный цикл
       </p>
@@ -94,7 +106,6 @@ export default function ServiceSketch() {
       </p>
 
       <div className="relative border border-white/10 bg-[#0c0c0c] px-4 sm:px-10 py-12 sm:py-16 overflow-hidden">
-        {/* фон-сетка */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -104,7 +115,6 @@ export default function ServiceSketch() {
           }}
         />
 
-        {/* линия + узлы */}
         <div className="relative max-w-4xl mx-auto">
           <svg
             viewBox="0 0 800 120"
@@ -112,91 +122,104 @@ export default function ServiceSketch() {
             fill="none"
             aria-hidden
           >
-            {/* базовая направляющая */}
+            {/* серая база */}
             <line
               x1="40"
               y1="60"
               x2="760"
               y2="60"
               stroke="#F4F4F0"
-              strokeWidth="0.5"
-              opacity="0.12"
-            />
-
-            {/* рисующаяся линия */}
-            <path
-              className="svc-anim"
-              pathLength="1"
-              d="M 40 60 H 760"
-              stroke="#F4F4F0"
               strokeWidth="1.25"
-              strokeLinecap="square"
-              strokeDasharray="1"
-              style={lineStyle}
+              opacity="0.15"
             />
 
-            {/* бегущая точка accent */}
-            {active && (
-              <circle r="4" fill="#FF3B30" className="svc-anim">
-                <animateMotion
-                  dur="12s"
-                  repeatCount="indefinite"
-                  path="M 40 60 H 760"
-                  keyPoints="0;0.08;0.48;0.55;1"
-                  keyTimes="0;0.1;0.48;0.55;1"
-                  calcMode="linear"
-                />
-                <animate
-                  attributeName="opacity"
-                  values="0;1;1;0;0"
-                  keyTimes="0;0.1;0.48;0.55;1"
-                  dur="12s"
-                  repeatCount="indefinite"
-                />
-              </circle>
+            {/* красный прогресс */}
+            <line
+              x1="40"
+              y1="60"
+              x2={xAt(progress)}
+              y2="60"
+              stroke="#FF3B30"
+              strokeWidth="1.5"
+              strokeLinecap="square"
+            />
+
+            {/* точка на конце */}
+            {progress > 0.01 && progress < 0.995 && (
+              <circle
+                cx={xAt(progress)}
+                cy="60"
+                r="4"
+                fill="#FF3B30"
+              />
             )}
 
-            {/* узлы на 4 позициях */}
-            {[40, 280, 520, 760].map((x, i) => (
-              <g key={x} className="svc-anim" style={nodeStyle(i)}>
-                <circle
-                  cx={x}
-                  cy="60"
-                  r={i === 3 ? 7 : 5}
-                  fill={i === 3 ? '#FF3B30' : '#0c0c0c'}
-                  stroke={i === 3 ? '#FF3B30' : '#F4F4F0'}
-                  strokeWidth="1.25"
-                />
-                {i === 3 && (
-                  <circle cx={x} cy="60" r="12" fill="none" stroke="#FF3B30" strokeWidth="1" opacity="0.35" />
-                )}
-              </g>
-            ))}
+            {/* узлы */}
+            {STOPS.map((stop, i) => {
+              const reached = progress >= stop - 0.001
+              const isActive = activeStage === i
+              return (
+                <g key={i}>
+                  <circle
+                    cx={xAt(stop)}
+                    cy="60"
+                    r={isActive ? 7 : 5}
+                    fill={reached ? '#FF3B30' : '#0c0c0c'}
+                    stroke={reached ? '#FF3B30' : '#F4F4F0'}
+                    strokeWidth="1.25"
+                    className="transition-[r,fill,stroke] duration-300"
+                  />
+                  {isActive && (
+                    <circle
+                      cx={xAt(stop)}
+                      cy="60"
+                      r="14"
+                      fill="none"
+                      stroke="#FF3B30"
+                      strokeWidth="1"
+                      opacity="0.4"
+                    />
+                  )}
+                </g>
+              )
+            })}
           </svg>
 
-          {/* подписи */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4">
-            {STAGES.map((s, i) => (
-              <div
-                key={s.n}
-                className="svc-anim text-left sm:text-center"
-                style={labelStyle(i)}
-              >
+            {STAGES.map((stage, i) => {
+              const on = activeStage === i
+              const done = activeStage > i || (reduced && true)
+              return (
                 <div
-                  className={`font-display text-xs tracking-[0.2em] mb-2 ${
-                    i === 3 ? 'text-accent' : 'text-gray-500'
+                  key={stage.n}
+                  className={`text-left sm:text-center transition-all duration-300 ${
+                    on
+                      ? 'opacity-100 translate-y-0'
+                      : done
+                        ? 'opacity-70'
+                        : 'opacity-35'
                   }`}
                 >
-                  {s.n}
+                  <div
+                    className={`font-display text-xs tracking-[0.2em] mb-2 ${
+                      on || done ? 'text-accent' : 'text-gray-500'
+                    }`}
+                  >
+                    {stage.n}
+                  </div>
+                  <div
+                    className={`font-display text-lg sm:text-xl font-bold ${
+                      on ? 'text-paper' : 'text-gray-400'
+                    }`}
+                  >
+                    {stage.title}
+                  </div>
+                  <p className="mt-1 text-xs sm:text-sm text-gray-500 leading-relaxed">
+                    {stage.sub}
+                  </p>
                 </div>
-                <div className="font-display text-lg sm:text-xl font-bold text-paper">
-                  {s.title}
-                </div>
-                <p className="mt-1 text-xs sm:text-sm text-gray-500 leading-relaxed">
-                  {s.sub}
-                </p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
