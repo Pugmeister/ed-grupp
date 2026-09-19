@@ -1,6 +1,6 @@
 import Button from '../../components/Button/Button'
 import { img } from '../../utils/asset'
-import Seo from "../../components/Seo/Seo.jsx";
+import Seo from '../../components/Seo/Seo'
 
 const principles = [
   {
@@ -21,16 +21,24 @@ const principles = [
   },
 ]
 
-// Файлы: public/images/licenses/01.jpg … 06.jpg
 const licenses = [
-  { src: img('images/licenses/Vypiska-4.png'), alt: 'Лицензия / допуск 3' },
-  { src: img('images/licenses/Vypiska-5.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-4.png'), alt: 'Лицензия / допуск 1' },
+  { src: img('images/licenses/Vypiska-5.png'), alt: 'Лицензия / допуск 2' },
   { src: img('images/licenses/Vypiska-6.png'), alt: 'Лицензия / допуск 3' },
-  { src: img('images/licenses/Vypiska-7.png'), alt: 'Лицензия / допуск 3' },
-  { src: img('images/licenses/Vypiska-8.png'), alt: 'Лицензия / допуск 3' },
-  { src: img('images/licenses/Vypiska-9.png'), alt: 'Лицензия / допуск 3' },
-  { src: img('images/licenses/Vypiska-10.png'), alt: 'Лицензия / допуск 3' },
+  { src: img('images/licenses/Vypiska-7.png'), alt: 'Лицензия / допуск 4' },
+  { src: img('images/licenses/Vypiska-8.png'), alt: 'Лицензия / допуск 5' },
+  { src: img('images/licenses/Vypiska-9.png'), alt: 'Лицензия / допуск 6' },
+  { src: img('images/licenses/Vypiska-10.png'), alt: 'Лицензия / допуск 7' },
 ]
+
+/** Кадры: public/images/about/workdays/01.jpg … 14.jpg */
+const workdays = Array.from({ length: 28 }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0')
+  return {
+    src: img(`images/about/workdays/${n}.jpg`),
+    alt: `Рабочие будни ED GRUPP — кадр ${n}`,
+  }
+})
 
 export default function About() {
   return (
@@ -123,6 +131,39 @@ export default function About() {
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed">{card.d}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Рабочие будни */}
+        <section className="mb-24 -mx-5 sm:-mx-6 md:-mx-12">
+          <div className="px-5 sm:px-6 md:px-12 mb-8 sm:mb-10">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+              Рабочие будни
+            </h2>
+            <p className="mt-3 text-gray-400 max-w-xl">
+              Площадки, техника и процесс — кадры с объектов, без постановочных
+              стоков.
+            </p>
+          </div>
+
+          <div
+            className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-5 sm:px-6 md:px-12
+              [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {workdays.map((shot) => (
+              <figure
+                key={shot.src}
+                className="relative shrink-0 snap-center w-[85vw] sm:w-[55vw] md:w-[38vw] lg:w-[28vw]
+                  aspect-[4/5] sm:aspect-[3/4] overflow-hidden border border-white/10 bg-white/5"
+              >
+                <img
+                  src={shot.src}
+                  alt={shot.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </figure>
             ))}
           </div>
         </section>
