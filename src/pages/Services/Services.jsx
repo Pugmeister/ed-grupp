@@ -1,6 +1,7 @@
 import { services } from '../../data/services'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import Seo from "../../components/Seo/Seo.jsx";
+import ServiceSketch from "../../components/ServiceSketch/ServiceSketch.jsx";
 
 export default function Services() {
   return (
@@ -35,6 +36,7 @@ export default function Services() {
           ))}
         </div>
       </div>
+      <ServiceSketch />
     </div>
   )
 }
