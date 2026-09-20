@@ -22,8 +22,12 @@ export default function Footer() {
               ED GRUPP
             </Link>
 
-            <p className="text-sm leading-relaxed max-w-xs text-gray-400">
-              Мы строим больше, чем здания. Современная строительная компания полного цикла.
+            <p className="font-display font-bold uppercase tracking-[0.15em] text-xs sm:text-sm text-gray-400 flex items-center gap-2 max-w-xs">
+              <span>Гибкость</span>
+              <span className="text-accent">·</span>
+              <span className="text-paper">Скорость</span>
+              <span className="text-accent">·</span>
+              <span>Гарантия</span>
             </p>
           </div>
 

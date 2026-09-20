@@ -134,9 +134,6 @@ export default function Home() {
     }
   }, [])
 
-  // Точки-индикатор под треком (видны только < lg, см. className ниже) —
-  // синхронизируются с нативным горизонтальным скроллом самого трека,
-  // независимо от эффекта выше, который на этих ширинах ничего не делает.
   useEffect(() => {
     const track = horizontalTrackRef.current
     if (!track) return
