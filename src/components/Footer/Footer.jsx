@@ -19,7 +19,7 @@ export default function Footer() {
               to="/"
               className="font-display text-2xl font-bold text-paper tracking-widest interactive-hover inline-block"
             >
-              ED GRUPP
+              Евродом Групп
             </Link>
 
             <p className="font-display font-bold uppercase tracking-[0.15em] text-xs sm:text-sm text-gray-400 flex items-center gap-2 max-w-xs">
@@ -113,7 +113,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs opacity-70">
 
           <div>
-            © {new Date().getFullYear()} ED GRUPP. Все права защищены.
+            © {new Date().getFullYear()} Евродом Групп. Все права защищены.
           </div>
 
           <div className="flex flex-wrap items-center gap-6">

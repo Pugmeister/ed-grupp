@@ -39,7 +39,7 @@ export default function Header() {
           to="/"
           className="font-display text-xl sm:text-2xl font-bold tracking-widest interactive-hover"
         >
-          ED GRUPP
+          Евродом Групп
         </Link>
 
         {/* Desktop nav */}

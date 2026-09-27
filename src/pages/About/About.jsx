@@ -36,7 +36,7 @@ const workdays = Array.from({ length: 28 }, (_, i) => {
   const n = String(i + 1).padStart(2, '0')
   return {
     src: img(`images/about/workdays/${n}.jpg`),
-    alt: `Рабочие будни ED GRUPP — кадр ${n}`,
+    alt: `Рабочие будни Евродом Групп — кадр ${n}`,
   }
 })
 
@@ -44,7 +44,7 @@ export default function About() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
-        title="О компании ED GRUPP — 20 лет и 1,5 млн м²"
+        title="О компании Евродом Групп — 20 лет и 1,5 млн м²"
         description="Строительная компания полного цикла: 20+ лет на рынке, свыше 1,5 млн м². Логистика класса А, коммерция, жильё и промышленность. 7 регионов России и Азербайджан."
       />
       <div className="max-w-7xl mx-auto">
@@ -59,7 +59,7 @@ export default function About() {
             КОТОРЫЕ РАБОТАЮТ
           </h1>
           <p className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
-            ED GRUPP — строительная компания полного цикла с более чем 20-летним
+            Евродом Групп — строительная компания полного цикла с более чем 20-летним
             опытом и международными проектами. За это время реализовано свыше
             1.5&nbsp;млн+&nbsp;м²: логистические парки класса&nbsp;А, коммерция, жильё и
             промышленность. От техзадания до ввода «под ключ» — с контролем
