@@ -34,10 +34,6 @@ const PROCESS_CARDS = [
   },
 ]
 
-// Ниже этой ширины scroll-jack (пиннинг секции + JS-transform трека)
-// отключается, и .horizontal-track становится обычным горизонтальным
-// scroll-snap списком — см. updateHorizontal() и синхронный CSS-брейкпоинт
-// в index.css (@media (max-width: 1023px)).
 const HORIZONTAL_PIN_BREAKPOINT = 1024
 
 export default function Home() {
@@ -81,10 +77,6 @@ export default function Home() {
       const track = horizontalTrackRef.current
       if (!section || !track) return
 
-      // На мобиле/планшете секция не "пинится" вертикальным скроллом —
-      // карточки листаются нативным горизонтальным свайпом (scroll-snap,
-      // см. index.css). Сбрасываем transform на случай, если он остался
-      // с предыдущей ширины экрана (поворот устройства, ресайз окна).
       if (window.innerWidth < HORIZONTAL_PIN_BREAKPOINT) {
         if (track.style.transform) track.style.transform = ''
         return
@@ -185,7 +177,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/45 to-ink/70" />
         </div>
 
-        <h1 className="hero-title relative z-10 font-display font-bold tracking-tighter text-center px-4 sm:px-6 drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)]">
+        <h1 className="hero-title relative z-10 font-display font-bold tracking-tight !leading-[1.1] text-center px-4 sm:px-6 drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)]">
           <span className="block text-paper">ГИБКОСТЬ</span>
           <span className="block text-accent">СКОРОСТЬ</span>
           <span className="block text-paper">ГАРАНТИЯ</span>

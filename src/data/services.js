@@ -40,7 +40,7 @@ export const services = [
       },
     ],
     facts: [
-      { value: '4+', label: 'Крупных логопарка' },
+      { value: '7', label: 'Крупных логопарка' },
       { value: '1.5 млн+', label: 'м² складов' },
       { value: '20+', label: 'Лет опыта' },
     ],
