@@ -14,7 +14,7 @@ export const projects = [
     status: 'Реализован',
     year: '',
     description:
-      'Складской комплекс в Московской области, р.п. Обухово Богородского городского округа. Комплекс представляет собой 3 складских корпуса. Общая площадь застраиваемого участка — 20 га. Планируемая общая площадь застройки логопарка — порядка 453 000 м².',
+      'Складской комплекс в Московской области, р.п. Обухово Богородского городского округа. Комплекс представляет собой 3 складских корпуса. Общая площадь застраиваемого участка — 20 га. Планируемая общая площадь застройки логопарка — порядка 1 000 000 м².',
     image: img('images/projects/sklad-obuhovo-moskva/01.jpg'),
     gallery: [
       img('images/projects/sklad-obuhovo-moskva/02.jpg'),
@@ -50,7 +50,7 @@ export const projects = [
       'Складской комплекс расположен в г. Екатеринбург, р-н Октябрьский, восточнее п. Кольцово. Площадь складских комплексов — более 215 000 м².',
     image: img('images/projects/sklad-koltsovo-ekaterinburg/01.jpg'),
     gallery: [
-
+      img('images/projects/sklad-koltsovo-ekaterinburg/02.jpg'),
       img('images/projects/sklad-koltsovo-ekaterinburg/04.jpg'),
       img('images/projects/sklad-koltsovo-ekaterinburg/11.jpg'),
     ],
@@ -240,19 +240,20 @@ export const projects = [
       { title: 'Сдача', description: 'Передача ключей' },
     ],
   },
-  /*{
+  {
     id: 8,
     slug: 'zhk-galaktika-volgograd',
     title: 'Жилой комплекс «Галактика»',
-    seoTitle: 'Жилой комплекс «Галактика» — Волгоград',
+    seoTitle: 'ЖК «Галактика» — Волгоград, 6 литеров',
     seoDescription:
-      'Жилой комплекс «Галактика» в Волгограде, 131 мкр Дзержинского района. Современная инженерия и полный цикл строительства ED GRUPP.',
+      'Жилой комплекс «Галактика» в Волгограде: 6 литеров, 17 этажей. Сроки строительства — весна 2022 — лето 2029. ED GRUPP.',
     location: 'Волгоград, Дзержинский р-н',
     type: 'Жильё',
     area: '',
-    status: 'Реализован',
-    year: '',
-    description: '',
+    status: 'В строительстве',
+    year: '2022–2029',
+    description:
+      'Жилой комплекс «Галактика» в Волгограде (Дзержинский район). В составе — 6 литеров высотой 17 этажей. Сроки строительства: весна 2022 — лето 2029. Полный цикл возведения ED GRUPP.',
     image: img('images/projects/zhk-galaktika-volgograd/02.jpg'),
     gallery: [
       img('images/projects/zhk-galaktika-volgograd/02.jpg'),
@@ -264,17 +265,18 @@ export const projects = [
       img('images/projects/zhk-galaktika-volgograd/09.jpg'),
     ],
     features: [
-      { label: 'Район', value: 'Дзержинский' },
-      { label: 'Город', value: 'Волгоград' },
-      { label: 'Статус', value: 'Реализован' },
+      { label: 'Состав', value: '6 литеров' },
+      { label: 'Этажность', value: '17 этажей' },
+      { label: 'Сроки', value: 'весна 2022 — лето 2029' },
+      { label: 'Статус', value: 'В строительстве' },
     ],
     stages: [
-      { title: 'Концепция', description: 'Современный жилой комплекс' },
-      { title: 'Проектирование', description: 'Инженерные системы' },
-      { title: 'Строительство', description: 'Возведение' },
-      { title: 'Сдача', description: 'Ввод в эксплуатацию' },
+      { title: 'Концепция', description: 'Многосекционный жилой комплекс' },
+      { title: 'Проектирование', description: 'Архитектура и инженерия' },
+      { title: 'Строительство', description: 'Поэтапное возведение литеров' },
+      { title: 'Сдача', description: 'Планируемый ввод — лето 2029' },
     ],
-  },*/
+  },
   {
     id: 9,
     slug: 'zhk-novyj-volgograd',
@@ -326,6 +328,7 @@ export const projects = [
       'ЖК «Снегири» в Волгограде: три 17-этажных дома премиум-класса с огороженной территорией рядом с комплексом «Мамаев курган».',
     image: img('images/projects/zhk-snegiri-volgograd/03.jpg'),
     gallery: [
+      img('images/projects/zhk-snegiri-volgograd/01.jpg'),
       img('images/projects/zhk-snegiri-volgograd/03.jpg'),
       img('images/projects/zhk-snegiri-volgograd/04.jpg'),
       img('images/projects/zhk-snegiri-volgograd/05.jpg'),
@@ -347,33 +350,37 @@ export const projects = [
   },
   {
     id: 11,
-    slug: 'sklad-bristol-krasnodar',
-    title: 'Складской комплекс «Бристоль»',
-    seoTitle: 'Складской комплекс «Бристоль» — Краснодар',
+    slug: 'sklad-dinskaya-krasnodar',
+    title: 'Складской комплекс «Динская»',
+    seoTitle: 'Складской комплекс «Динская» — Краснодар, FixPrice',
     seoDescription:
-      'Складской комплекс «Бристоль» в Краснодаре: логистика полного цикла от ED GRUPP. Площадь и параметры участка — по данным заказчика.',
-    location: 'Краснодар',
+      'Складской комплекс «Динская» в Краснодарском крае: объект под арендатора БестПрайс (FixPrice), ≈70 000 м². Строительство лето 2020 — осень 2021. ED GRUPP.',
+    location: 'Краснодарский край, ст. Динская',
     type: 'Логистические парки',
-    area: '',
+    area: '≈ 70 000 м²',
     status: 'Реализован',
-    year: '',
+    year: '2020–2021',
     description:
-      'Складской комплекс «Бристоль» в Краснодаре. Детали объекта, площадь и параметры. Полный цикл строительства «под ключ» от ED GRUPP.',
-    image: img('images/projects/sklad-bristol-krasnodar/01.jpg'),
+      'Складской комплекс «Динская» в Краснодарском крае (ст. Динская). В составе комплекса реализован объект под арендатора БестПрайс (FixPrice): строительство лето 2020 — осень 2021, площадь порядка 70 000 м². Полный цикл работ ED GRUPP.',
+    image: img('images/projects/sklad-dinskaya-krasnodar/01.jpg'),
     gallery: [
-      img('images/projects/sklad-bristol-krasnodar/01.jpg'),
+      img('images/projects/sklad-dinskaya-krasnodar/02.jpg'),
+      img('images/projects/sklad-dinskaya-krasnodar/03.jpg'),
+      img('images/projects/sklad-dinskaya-krasnodar/04.jpg'),
+      img('images/projects/sklad-dinskaya-krasnodar/05.jpg'),
+
     ],
     features: [
-      { label: 'Площадь', value: '' },
-      { label: 'Участок', value: '' },
-      { label: 'Тип', value: 'Склады класса А' },
+      { label: 'Площадь', value: '≈ 70 000 м²' },
+      { label: 'Арендатор', value: 'БестПрайс (FixPrice)' },
+      { label: 'Сроки', value: 'лето 2020 — осень 2021' },
       { label: 'Статус', value: 'Реализован' },
     ],
     stages: [
-      { title: 'Концепция', description: 'Анализ участка и планировка логистического парка' },
-      { title: 'Проектирование', description: 'Рабочая документация и инженерные системы' },
-      { title: 'Строительство', description: 'Возведение складских корпусов' },
-      { title: 'Сдача', description: 'Ввод в эксплуатацию' },
+      { title: 'Концепция', description: 'Параметры площадки и требования арендатора' },
+      { title: 'Проектирование', description: 'Рабочая документация и инженерия' },
+      { title: 'Строительство', description: 'Возведение корпуса под FixPrice' },
+      { title: 'Сдача', description: 'Ввод в эксплуатацию, осень 2021' },
     ],
   },
   {
@@ -386,7 +393,7 @@ export const projects = [
     location: 'Азербайджан',
     type: 'Промышленность',
     area: '',
-    status: 'Реализован', // или «В строительстве»
+    status: 'Реализован',
     year: '',
     description:
       'Международный проект Евродом Группв Азербайджане. Детали объекта, площадь и фото . Полный цикл: от техзадания до ввода «под ключ».',
@@ -413,6 +420,120 @@ export const projects = [
       { title: 'Проектирование', description: 'Документация и инженерия' },
       { title: 'Строительство', description: 'Возведение и сети' },
       { title: 'Сдача', description: 'Ввод «под ключ»' },
+    ],
+  },
+  {
+    id: 13,
+    slug: 'sklad-holodilnik-rostov',
+    title: 'Мультитемпературный складской комплекс',
+    seoTitle: 'Мультитемпературный склад «Холодильник» — Ростов-на-Дону',
+    seoDescription:
+      'Мультитемпературный складской комплекс в Ростове-на-Дону (склад «Холодильник»). Заказчик — Элма Групп. 2-я и 3-я очереди, 2022–2024. ED GRUPP.',
+    location: 'Ростов-на-Дону',
+    type: 'Логистические парки',
+    area: '≈ 16 500 м²',
+    status: 'Реализован',
+    year: '2022–2024',
+    description:
+      'Мультитемпературный складской комплекс в Ростове-на-Дону (склад «Холодильник»). Заказчик — Элма Групп (Москва). Вторая очередь: октябрь 2022 — февраль 2024, 11 000 м². Третья очередь: август 2023 — март 2024, 5 500 м². Полный цикл строительства ED GRUPP.',
+    image: img('images/projects/sklad-holodilnik-rostov/01.jpg'),
+    gallery: [
+      img('images/projects/sklad-holodilnik-rostov/02.jpg'),
+      img('images/projects/sklad-holodilnik-rostov/03.jpg'),
+      img('images/projects/sklad-holodilnik-rostov/04.jpg'),
+    ],
+    features: [
+      { label: '2-я очередь', value: '11 000 м² · 10.2022–02.2024' },
+      { label: '3-я очередь', value: '5 500 м² · 08.2023–03.2024' },
+      { label: 'Заказчик', value: 'Элма Групп' },
+      { label: 'Статус', value: 'Реализован' },
+    ],
+    stages: [
+      { title: 'Концепция', description: 'ТЗ мультитемпературного хранения' },
+      { title: 'Проектирование', description: 'Инженерия холодовой цепи' },
+      { title: 'Строительство', description: '2-я и 3-я очереди' },
+      { title: 'Сдача', description: 'Ввод очередей 2024' },
+    ],
+  },
+  {
+    id: 14,
+    slug: 'sklad-obuhovo-7',
+    title: 'Склад 7, «Обухово»',
+    seoTitle: 'Склад 7 Обухово — Wildberries, Инкерман',
+    seoDescription:
+      'Склад 7 в логопарке «Обухово»: арендаторы Wildberries и Инкерман. 24 000 м², сроки ноябрь 2025 — октябрь 2026. ED GRUPP.',
+    location: 'Московская область, р.п. Обухово',
+    type: 'Логистические парки',
+    area: '24 000 м²',
+    status: 'В строительстве',
+    year: '2025–2026',
+    description:
+      'Склад 7 в составе складского комплекса «Обухово». Арендаторы — Wildberries и Инкерман. Площадь 24 000 м². Сроки строительства: ноябрь 2025 — октябрь 2026.',
+    image: img('images/projects/sklad-obuhovo-7/01.jpg'),
+    gallery: [img('images/projects/sklad-obuhovo-7/01.jpg')],
+    features: [
+      { label: 'Площадь', value: '24 000 м²' },
+      { label: 'Арендаторы', value: 'Wildberries, Инкерман' },
+      { label: 'Сроки', value: 'ноя 2025 — окт 2026' },
+      { label: 'Статус', value: 'В строительстве' },
+    ],
+    stages: [
+      { title: 'Строительство', description: 'Возведение корпуса' },
+      { title: 'Сдача', description: 'План — октябрь 2026' },
+    ],
+  },
+  {
+    id: 15,
+    slug: 'sklad-obuhovo-8',
+    title: 'Склад 8, «Обухово»',
+    seoTitle: 'Склад 8 Обухово — Ozon Fresh',
+    seoDescription:
+      'Склад 8 в логопарке «Обухово»: арендатор Ozon Fresh. 40 000 м², сроки лето 2026 — лето 2027. ED GRUPP.',
+    location: 'Московская область, р.п. Обухово',
+    type: 'Логистические парки',
+    area: '40 000 м²',
+    status: 'В строительстве',
+    year: '2026–2027',
+    description:
+      'Склад 8 в составе складского комплекса «Обухово». Арендатор — Ozon Fresh. Площадь 40 000 м². Сроки строительства: лето 2026 — лето 2027.',
+    image: img('images/projects/sklad-obuhovo-8/01.jpg'),
+    gallery: [img('images/projects/sklad-obuhovo-8/01.jpg')],
+    features: [
+      { label: 'Площадь', value: '40 000 м²' },
+      { label: 'Арендатор', value: 'Ozon Fresh' },
+      { label: 'Сроки', value: 'лето 2026 — лето 2027' },
+      { label: 'Статус', value: 'В строительстве' },
+    ],
+    stages: [
+      { title: 'Строительство', description: 'Возведение корпуса' },
+      { title: 'Сдача', description: 'План — лето 2027' },
+    ],
+  },
+  {
+    id: 16,
+    slug: 'sklad-obuhovo-9',
+    title: 'Склад 9, «Обухово»',
+    seoTitle: 'Склад 9 Обухово — Ozon',
+    seoDescription:
+      'Склад 9 в логопарке «Обухово»: арендатор Ozon. 46 000 м², сроки лето 2026 — весна 2027. ED GRUPP.',
+    location: 'Московская область, р.п. Обухово',
+    type: 'Логистические парки',
+    area: '46 000 м²',
+    status: 'В строительстве',
+    year: '2026–2027',
+    description:
+      'Склад 9 в составе складского комплекса «Обухово». Арендатор — Ozon. Площадь 46 000 м². Сроки строительства: лето 2026 — весна 2027.',
+    image: img('images/projects/sklad-obuhovo-9/01.jpg'),
+    gallery: [img('images/projects/sklad-obuhovo-9/01.jpg')],
+    features: [
+      { label: 'Площадь', value: '46 000 м²' },
+      { label: 'Арендатор', value: 'Ozon' },
+      { label: 'Сроки', value: 'лето 2026 — весна 2027' },
+      { label: 'Статус', value: 'В строительстве' },
+    ],
+    stages: [
+      { title: 'Строительство', description: 'Возведение корпуса' },
+      { title: 'Сдача', description: 'План — весна 2027' },
     ],
   },
 ]
