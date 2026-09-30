@@ -50,6 +50,10 @@ export const services = [
       'sklad-dorozhnyj-rostov',
       'sklad-oktyabrskij-krasnodar',
       'tumen-gorod',
+      'sklad-dinskaya-krasnodar',
+      'sklad-obuhovo-7',
+      'sklad-obuhovo-8',
+      'sklad-obuhovo-9',
     ],
   },
   {
