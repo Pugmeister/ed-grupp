@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Button from '../../components/Button/Button'
 import { img } from '../../utils/asset'
 import Seo from '../../components/Seo/Seo'
+import GrowthSketch from "../../components/GrowthSketch/GrowthSketch.jsx";
 
 const principles = [
   {
@@ -322,6 +323,8 @@ export default function About() {
             ))}
           </div>
         </section>
+
+        <GrowthSketch/>
 
         {/* CTA */}
         <section className="text-center py-8 border-t border-white/10">

@@ -1,5 +1,6 @@
 import ContactForm from '../../components/ContactForm/ContactForm'
 import Seo from "../../components/Seo/Seo.jsx";
+import CraneSketch from "../../components/CraneSketch/CraneSketch.jsx";
 
 export default function Contacts() {
   return (
@@ -84,7 +85,9 @@ export default function Contacts() {
               <ContactForm title="Напишите нам" />
             </div>
           </div>
+
         </div>
+        <CraneSketch/>
       </div>
     </div>
   )
