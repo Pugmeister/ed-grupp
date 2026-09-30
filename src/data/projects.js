@@ -477,8 +477,8 @@ export const projects = [
     year: '2025–2026',
     description:
       'Склад 7 в составе складского комплекса «Обухово». Арендаторы — Wildberries и Инкерман. Площадь 24 000 м². Сроки строительства: ноябрь 2025 — октябрь 2026.',
-    image: img('images/projects/sklad-obuhovo-7/01.jpg'),
-    gallery: [img('images/projects/sklad-obuhovo-7/01.jpg')],
+    image: img('images/projects/sklad-obuhovo-7/01.JPG'),
+    gallery: [img('images/projects/sklad-obuhovo-7/02.JPG')],
     features: [
       { label: 'Площадь', value: '24 000 м²' },
       { label: 'Арендаторы', value: 'Wildberries, Инкерман' },
@@ -536,8 +536,11 @@ export const projects = [
     year: '2026–2027',
     description:
       'Склад 9 в составе складского комплекса «Обухово». Арендатор — Ozon. Площадь 46 000 м². Сроки строительства: лето 2026 — весна 2027.',
-    image: img('images/projects/sklad-obuhovo-9/01.jpg'),
-    gallery: [img('images/projects/sklad-obuhovo-9/01.jpg')],
+    image: img('images/projects/sklad-obuhovo-9/01.JPG'),
+    gallery: [
+      img('images/projects/sklad-obuhovo-9/02.JPG'),
+      img('images/projects/sklad-obuhovo-9/03.JPG')
+    ],
     features: [
       { label: 'Площадь', value: '46 000 м²' },
       { label: 'Арендатор', value: 'Ozon' },
