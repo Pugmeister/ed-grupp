@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Button from '../../components/Button/Button'
 import { img } from '../../utils/asset'
 import Seo from '../../components/Seo/Seo'
@@ -31,16 +32,27 @@ const licenses = [
   { src: img('images/licenses/Vypiska-10.png'), alt: 'Лицензия / допуск 7' },
 ]
 
-/** Кадры: public/images/about/workdays/01.jpg … 14.jpg */
-const workdays = Array.from({ length: 28 }, (_, i) => {
+const WORKDAYS_TOTAL = 44
+const WORKDAYS_PREVIEW = 12
+
+const workdays = Array.from({ length: WORKDAYS_TOTAL }, (_, i) => {
   const n = String(i + 1).padStart(2, '0')
   return {
     src: img(`images/about/workdays/${n}.jpg`),
-    alt: `Рабочие будни Евродом Групп — кадр ${n}`,
+    alt: `Рабочие будни — кадр ${n}`,
   }
 })
 
 export default function About() {
+  const [showAll, setShowAll] = useState(false)
+  const [lightbox, setLightbox] = useState(null)
+
+  const visible = showAll ? workdays : workdays.slice(0, WORKDAYS_PREVIEW)
+
+  const openLightbox = (indexInVisible) => {
+    setLightbox(showAll ? indexInVisible : indexInVisible)
+  }
+
   return (
     <div className="pt-28 sm:pt-32 pb-20 px-5 sm:px-6 md:px-12 min-h-screen bg-ink">
       <Seo
@@ -59,11 +71,11 @@ export default function About() {
             КОТОРЫЕ РАБОТАЮТ
           </h1>
           <p className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
-            Евродом Групп — строительная компания полного цикла с более чем 20-летним
-            опытом и международными проектами. За это время реализовано свыше
-            1.5&nbsp;млн+&nbsp;м²: логистические парки класса&nbsp;А, коммерция, жильё и
-            промышленность. От техзадания до ввода «под ключ» — с контролем
-            сроков и качества.
+            Евродом Групп — строительная компания полного цикла с более чем
+            20-летним опытом и международными проектами. За это время
+            реализовано свыше 1.5&nbsp;млн+&nbsp;м²: логистические парки
+            класса&nbsp;А, коммерция, жильё и промышленность. От техзадания до
+            ввода «под ключ» — с контролем сроков и качества.
           </p>
         </header>
 
@@ -98,8 +110,8 @@ export default function About() {
               подрядчик на весь цикл: земля, каркас, инженерия, сдача.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              Среди реализованных площадок — логопарки для резидентов вроде Ozon,
-              AliExpress, X5, «Ленты» и Яндекса, а также жилые комплексы в
+              Среди реализованных площадок — логопарки для резидентов вроде
+              Ozon, AliExpress, X5, «Ленты» и Яндекса, а также жилые комплексы в
               Краснодаре и Волгограде.
             </p>
           </div>
@@ -136,36 +148,96 @@ export default function About() {
         </section>
 
         {/* Рабочие будни */}
-        <section className="mb-24 -mx-5 sm:-mx-6 md:-mx-12">
-          <div className="px-5 sm:px-6 md:px-12 mb-8 sm:mb-10">
+        <section className="mb-24">
+          <div className="mb-8 sm:mb-10">
             <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight">
               Рабочие будни
             </h2>
             <p className="mt-3 text-gray-400 max-w-xl">
-              Площадки, техника и процесс — кадры с объектов, без постановочных
-              стоков.
+              Площадки, техника и процесс — {WORKDAYS_TOTAL} кадров с объектов,
+              без постановочных стоков.
             </p>
           </div>
 
-          <div
-            className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-5 sm:px-6 md:px-12
-              [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {workdays.map((shot) => (
-              <figure
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+            {visible.map((shot, i) => (
+              <button
                 key={shot.src}
-                className="relative shrink-0 snap-center w-[85vw] sm:w-[55vw] md:w-[38vw] lg:w-[28vw]
-                  aspect-[4/5] sm:aspect-[3/4] overflow-hidden border border-white/10 bg-white/5"
+                type="button"
+                onClick={() => openLightbox(i)}
+                className="relative aspect-[4/5] overflow-hidden border border-white/10 bg-white/5 focus:outline-none focus-visible:border-accent group"
               >
                 <img
                   src={shot.src}
                   alt={shot.alt}
                   loading="lazy"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-              </figure>
+              </button>
             ))}
           </div>
+
+          {!showAll && workdays.length > WORKDAYS_PREVIEW && (
+            <div className="mt-8 text-center">
+              <button
+                type="button"
+                onClick={() => setShowAll(true)}
+                className="text-sm tracking-wide border border-white/20 px-6 py-3 hover:border-accent hover:text-accent transition-colors"
+              >
+                Показать все фото
+              </button>
+            </div>
+          )}
+
+          {lightbox !== null && (
+            <div
+              className="fixed inset-0 z-50 bg-ink/95 flex items-center justify-center p-4"
+              onClick={() => setLightbox(null)}
+              role="dialog"
+              aria-modal="true"
+            >
+              <button
+                type="button"
+                className="absolute top-6 right-6 text-paper text-sm tracking-wider uppercase hover:text-accent"
+                onClick={() => setLightbox(null)}
+              >
+                Закрыть
+              </button>
+              <img
+                src={workdays[lightbox].src}
+                alt={workdays[lightbox].alt}
+                className="max-h-[85vh] max-w-full object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-6">
+                <button
+                  type="button"
+                  className="text-sm text-gray-400 hover:text-paper disabled:opacity-30"
+                  disabled={lightbox === 0}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setLightbox((n) => Math.max(0, n - 1))
+                  }}
+                >
+                  ←
+                </button>
+                <span className="text-xs text-gray-500 tabular-nums">
+                  {lightbox + 1} / {workdays.length}
+                </span>
+                <button
+                  type="button"
+                  className="text-sm text-gray-400 hover:text-paper disabled:opacity-30"
+                  disabled={lightbox === workdays.length - 1}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setLightbox((n) => Math.min(workdays.length - 1, n + 1))
+                  }}
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Принципы */}
@@ -234,7 +306,7 @@ export default function About() {
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
-                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none'
                     e.currentTarget.parentElement.classList.add(
