@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { regions } from '../../data/regions'
 import { getProjectBySlug } from '../../data/projects'
 
-// Дуга между двумя точками (в координатах viewBox) — как на картах авиамаршрутов.
-// bend определяет, насколько сильно линия выгибается относительно прямой.
 function arcPath(a, b, bend = 0.16) {
   const mx = (a.x + b.x) / 2
   const my = (a.y + b.y) / 2
@@ -34,10 +32,6 @@ export default function Geography() {
   const active = regions.find((r) => r.id === activeId)
   const activeProject = active ? getProjectBySlug(active.projectSlug) : null
 
-  // Штаб-квартира сети — Краснодарский край. От неё расходятся маршруты.
-  // Если id штаб-региона изменится, поменяйте его здесь (или добавьте
-  // в regions.js флаг isHub: true и замените строку ниже на
-  // regions.find(r => r.isHub) || regions[0]).
   const hub = regions.find((r) => r.id === 2) || regions[0]
 
   // Зум карты к выбранному региону
@@ -115,7 +109,7 @@ export default function Geography() {
             ГЕОГРАФИЯ
           </h2>
           <p className="mt-4 text-gray-400 text-lg max-w-xl">
-            7 регионов России и Азербайджан. Международный опыт компании.
+            8 регионов России и Азербайджан. Международный опыт компании.
           </p>
         </div>
 
