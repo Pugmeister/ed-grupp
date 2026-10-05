@@ -49,17 +49,17 @@ image: img('images/fleets/9.jpg'),
   {
     value: 5,
     label: 'Башенных кранов',
-    image: img('images/fleets/9.jpg'),
+    image: img('images/fleets/10.jpg'),
   },
   {
     value: 2,
     label: 'Крана San Marco',
-    image: img('images/fleets/9.jpg'),
+    image: img('images/fleets/11.jpg'),
   },
   {
     value: 6,
     label: 'Дизель-генераторов',
-    image: img('images/fleets/9.jpg'),
+    image: img('images/fleets/12.jpg'),
   },
 ]
 
