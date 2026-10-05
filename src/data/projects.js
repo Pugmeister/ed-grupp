@@ -244,6 +244,7 @@ export const projects = [
       { title: 'Сдача', description: 'Передача ключей' },
     ],
   },
+  /*
   {
     id: 8,
     slug: 'zhk-galaktika-volgograd',
@@ -283,6 +284,7 @@ export const projects = [
       { title: 'Сдача', description: 'План ввода — лето 2029' },
     ],
   },
+  */
   {
     id: 9,
     slug: 'zhk-novyj-volgograd',
@@ -551,6 +553,41 @@ export const projects = [
     stages: [
       { title: 'Строительство', description: 'Возведение корпуса' },
       { title: 'Сдача', description: 'План — весна 2027' },
+    ],
+  },
+  {
+    id: 17,
+    slug: 'commercial-samara',
+    title: 'Коммерческое здание, Самара',
+    seoTitle: 'Коммерческое здание — Самарская область',
+    seoDescription:
+      'Коммерческое здание в Самарской области. Полный цикл строительства Евродом Групп.',
+    location: 'Самарская область',
+    type: 'Коммерция',
+    area: '',
+    status: 'Реализован',
+    year: '',
+    description:
+      'Коммерческое здание в Самарской области. Параметры площади, сроки и фото — уточняются по данным заказчика. Полный цикл: от проекта до ввода.',
+    // пока нет фото — поставь заглушку или первый кадр, когда появится папка
+    image: img('images/projects/commercial-samara/01.jpg'),
+    gallery: [
+      img('images/projects/commercial-samara/02.jpg'),
+      img('images/projects/commercial-samara/03.jpg'),
+      img('images/projects/commercial-samara/04.jpg'),
+      img('images/projects/commercial-samara/05.jpg'),
+      img('images/projects/commercial-samara/06.jpg'),
+    ],
+    features: [
+      { label: 'Тип', value: 'Коммерция' },
+      { label: 'Регион', value: 'Самарская область' },
+      { label: 'Статус', value: 'Реализован' },
+    ],
+    stages: [
+      { title: 'Концепция', description: 'ТЗ и параметры площадки' },
+      { title: 'Проектирование', description: 'Архитектура и инженерия' },
+      { title: 'Строительство', description: 'Возведение' },
+      { title: 'Сдача', description: 'Ввод в эксплуатацию' },
     ],
   },
 ]

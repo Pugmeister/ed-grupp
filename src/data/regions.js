@@ -1,14 +1,15 @@
 // География присутствия
 // coords — viewBox карты 0 0 1200 700 (Geography.jsx)
+// Порядок в списке UI: по алфавиту (ru), затем intl
 
 export const regions = [
   {
-    id: 1,
-    name: 'Московская область',
-    short: 'Московская обл.',
-    coords: { x: 306, y: 324 },
-    projectSlug: 'sklad-obuhovo-moskva',
-    description: 'Логопарк «Обухово» — склады класса А, в т.ч. корпуса в строительстве',
+    id: 5,
+    name: 'Волгоградская область',
+    short: 'Волгоградская обл.',
+    coords: { x: 355, y: 418 },
+    projectSlug: 'zhk-novyj-volgograd',
+    description: 'ЖК «Новый», «Снегири»',
     group: 'ru',
   },
   {
@@ -21,6 +22,15 @@ export const regions = [
     group: 'ru',
   },
   {
+    id: 1,
+    name: 'Московская область',
+    short: 'Московская обл.',
+    coords: { x: 306, y: 324 },
+    projectSlug: 'sklad-obuhovo-moskva',
+    description: 'Логопарк «Обухово» — склады класса А, в т.ч. корпуса в строительстве',
+    group: 'ru',
+  },
+  {
     id: 3,
     name: 'Ростовская область',
     short: 'Ростовская обл.',
@@ -30,21 +40,12 @@ export const regions = [
     group: 'ru',
   },
   {
-    id: 4,
-    name: 'Ставропольский край',
-    short: 'Ставропольский край',
-    coords: { x: 337, y: 466 },
-    projectSlug: null,
-    description: 'Регион присутствия компании',
-    group: 'ru',
-  },
-  {
-    id: 5,
-    name: 'Волгоградская область',
-    short: 'Волгоградская обл.',
-    coords: { x: 355, y: 418 },
-    projectSlug: 'zhk-galaktika-volgograd',
-    description: 'ЖК «Галактика», «Новый», «Снегири»',
+    id: 8,
+    name: 'Самарская область',
+    short: 'Самарская обл.',
+    coords: { x: 388, y: 368 },
+    projectSlug: 'commercial-samara',
+    description: 'Коммерческое здание',
     group: 'ru',
   },
   {
@@ -57,6 +58,15 @@ export const regions = [
     group: 'ru',
   },
   {
+    id: 4,
+    name: 'Ставропольский край',
+    short: 'Ставропольский край',
+    coords: { x: 337, y: 466 },
+    projectSlug: null,
+    description: 'Регион присутствия компании',
+    group: 'ru',
+  },
+  {
     id: 7,
     name: 'Тюменская область',
     short: 'Тюменская обл.',
@@ -66,7 +76,7 @@ export const regions = [
     group: 'ru',
   },
   {
-    id: 8,
+    id: 9,
     name: 'Азербайджан',
     short: 'Азербайджан',
     coords: { x: 392, y: 527 },

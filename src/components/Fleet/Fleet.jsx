@@ -46,6 +46,21 @@ image: img('images/fleets/8.jpg'),
     label: 'Погрузчиков',
 image: img('images/fleets/9.jpg'),
   },
+  {
+    value: 5,
+    label: 'Башенных кранов',
+    image: img('images/fleets/9.jpg'),
+  },
+  {
+    value: 2,
+    label: 'Крана San Marco',
+    image: img('images/fleets/9.jpg'),
+  },
+  {
+    value: 6,
+    label: 'Дизель-генераторов',
+    image: img('images/fleets/9.jpg'),
+  },
 ]
 
 export default function Fleet() {

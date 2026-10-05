@@ -41,7 +41,7 @@ export const services = [
     ],
     facts: [
       { value: '7', label: 'Крупных логопарка' },
-      { value: '1.5 млн+', label: 'м² складов' },
+      { value: '2 млн+', label: 'м² складов' },
       { value: '20+', label: 'Лет опыта' },
     ],
     relatedProjects: [
@@ -188,7 +188,7 @@ export const services = [
       },
     ],
     facts: [
-      { value: '1.5 млн+', label: 'м² суммарно по компании' },
+      { value: '2 млн+', label: 'м² суммарно по компании' },
       { value: '20+', label: 'Лет на рынке' },
       { value: '100%', label: 'Полный цикл' },
     ],
