@@ -54,12 +54,12 @@ image: img('images/fleets/9.jpg'),
   {
     value: 2,
     label: 'Крана San Marco',
-    image: img('images/fleets/11.jpg'),
+    image: img('images/fleets/11.jpeg'),
   },
   {
     value: 6,
     label: 'Дизель-генераторов',
-    image: img('images/fleets/12.jpg'),
+    image: img('images/fleets/12.png'),
   },
 ]
 
