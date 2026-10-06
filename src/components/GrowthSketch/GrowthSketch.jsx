@@ -4,6 +4,8 @@ const CYCLE_MS = 11000
 const DRAW_MS = 7500
 const HOLD_MS = 2000
 
+const TARGET_AREA = 2 // млн м²
+
 const N = 20
 const BASE_Y = 200
 const BAR_W = 22
@@ -75,9 +77,9 @@ export default function GrowthSketch() {
     return () => cancelAnimationFrame(rafRef.current)
   }, [inView, reduced])
 
-  const years = Math.round(20 * progress)
-  const area = (1.5 * progress).toFixed(1)
   const done = progress >= 0.995
+  const years = Math.round(20 * progress)
+  const area = done ? TARGET_AREA : (TARGET_AREA * progress).toFixed(1)
 
   return (
     <section
