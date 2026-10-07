@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 const CYCLE = '24s'
 
 const RED = '#FF3B30'
+const BG = '#0c0c0c'
 
 export default function NegotiationSketch() {
   const ref = useRef(null)
@@ -29,6 +30,8 @@ export default function NegotiationSketch() {
       ? {
         animation: `talk-draw ${CYCLE} cubic-bezier(0.16, 1, 0.3, 1) infinite`,
         animationDelay: delay,
+        // пока идёт задержка — линия скрыта, а не показана целиком
+        animationFillMode: 'backwards',
       }
       : { strokeDashoffset: 1, opacity: 0.2 }
 
@@ -38,12 +41,101 @@ export default function NegotiationSketch() {
       pathLength="1"
       d={d}
       stroke="#F4F4F0"
-      strokeWidth="1.1"
+      strokeWidth="1.6"
       strokeDasharray="1"
+      fill="none"
       style={sk(delay)}
       {...props}
     />
   )
+
+  /**
+   * Человек, сидящий лицом вправо. Рисуется в «левой» системе координат;
+   * правого участника получаем зеркалированием группы.
+   * kind: 'builder' (каска, жилет) | 'client' (причёска, очки)
+   */
+  const person = (kind, t0) => {
+    const d = (n) => `${(t0 + n).toFixed(1)}s`
+    return (
+      <>
+        {/* стул */}
+        {line(
+          'M 192 304 L 184 192 H 198 M 190 304 H 276 V 310 H 190 Z M 198 310 V 360 M 268 310 V 360',
+          d(0),
+          { strokeWidth: 1.2, opacity: 0.7 }
+        )}
+
+        {/* ноги и ботинок */}
+        {line(
+          'M 214 302 H 336 Q 348 302 348 314 V 346 H 322 V 326 H 214',
+          d(0.3),
+          { fill: BG }
+        )}
+        {line('M 318 346 H 352 Q 364 348 364 356 V 360 H 318 Z', d(0.45), {
+          fill: BG,
+        })}
+
+        {/* корпус */}
+        {line(
+          'M 214 304 L 218 224 Q 220 200 246 198 Q 272 198 274 226 L 272 304',
+          d(0.7),
+          { fill: BG }
+        )}
+
+        {/* детали одежды */}
+        {line('M 234 199 L 246 212 L 260 199', d(1), { strokeWidth: 1.2 })}
+        {kind === 'builder'
+          ? line('M 217 262 H 273 M 216 278 H 274', d(1.1), {
+            stroke: RED,
+            strokeWidth: 1.8,
+          })
+          : line('M 215 298 H 272 M 262 272 h0.1 M 262 286 h0.1', d(1.1), {
+            strokeWidth: 1.4,
+          })}
+
+        {/* шея */}
+        {line('M 238 174 V 199 M 256 174 V 199', d(1.2), { strokeWidth: 1.3 })}
+
+        {/* голова в профиль */}
+        {line(
+          'M 224 150 C 224 128 238 120 250 120 C 266 120 274 132 274 146 L 280 156 L 274 158 L 274 166 C 272 176 262 182 250 182 C 234 182 224 170 224 150 Z',
+          d(1.4),
+          { fill: BG, strokeWidth: 1.7 }
+        )}
+        {line('M 262 141 H 271 M 266 169 H 273 M 238 148 Q 232 155 238 162', d(1.7), {
+          strokeWidth: 1.2,
+        })}
+        {line('M 266 149 h0.1', d(1.8), { strokeWidth: 3.2 })}
+
+        {/* каска / причёска + очки */}
+        {kind === 'builder'
+          ? line(
+            'M 220 138 C 220 106 242 96 252 96 C 270 96 282 108 282 138 Z M 252 96 V 138 M 212 138 H 296',
+            d(2),
+            { stroke: RED, strokeWidth: 2, fill: BG }
+          )
+          : (
+            <>
+              {line(
+                'M 222 144 C 216 116 236 106 252 108 C 268 108 280 120 274 138 C 266 126 250 124 240 126 C 232 128 228 136 226 148 Z',
+                d(2),
+                { fill: BG }
+              )}
+              {line('M 258 144 H 272 V 154 H 258 Z M 258 148 L 240 146', d(2.2), {
+                strokeWidth: 1.1,
+              })}
+            </>
+          )}
+
+        {/* рука в рукаве */}
+        {line('M 253 205 L 310 237 L 370 223 L 374 241 L 306 255 L 243 223 Z', d(2.4), {
+          fill: BG,
+          strokeWidth: 1.7,
+        })}
+        {line('M 361 225 L 365 243', d(2.8), { strokeWidth: 1.3 })}
+      </>
+    )
+  }
 
   return (
     <section
@@ -76,7 +168,7 @@ export default function NegotiationSketch() {
         Любой объект начинается с разговора
       </h2>
 
-      <div className="relative w-full border border-white/10 bg-[#0c0c0c] aspect-[2/1] sm:aspect-[21/9] flex items-center justify-center p-6 sm:p-12 overflow-hidden">
+      <div className="relative w-full border border-white/10 bg-[#0c0c0c] aspect-[2/1] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -87,101 +179,85 @@ export default function NegotiationSketch() {
         />
 
         <svg
-          viewBox="0 0 560 260"
-          className="relative w-full h-full max-h-[300px]"
+          viewBox="0 0 800 400"
+          className="relative w-full h-full p-2 sm:p-6"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* пол */}
-          {line('M 24 220 H 536', '0s')}
+          {line('M 60 360 H 740', '0s')}
+          {line('M 150 374 H 650', '0.2s', { strokeWidth: 1.1, opacity: 0.3 })}
 
-          {/* стол: столешница + ножки */}
-          {line('M 180 150 H 380 V 158 H 180 Z', '0.4s', { strokeWidth: 1.2 })}
-          {line('M 206 158 V 220 M 354 158 V 220', '0.7s')}
-
-          {/* стулья */}
-          {line('M 132 170 H 168 M 132 170 V 120 M 138 170 V 220 M 164 170 V 220', '1s', {
-            strokeWidth: 1,
-            opacity: 0.7,
+          {/* окно со стройкой */}
+          {line('M 310 44 H 490 V 204 H 310 Z M 300 204 H 500', '0.4s', {
+            strokeWidth: 1.7,
           })}
-          {line('M 428 170 H 392 M 428 170 V 120 M 422 170 V 220 M 396 170 V 220', '1.2s', {
-            strokeWidth: 1,
-            opacity: 0.7,
+          {line(
+            'M 316 204 V 148 H 352 V 204 M 400 204 V 132 H 440 V 204 M 452 204 V 164 H 484 V 204 M 322 160 H 346 M 322 172 H 346 M 322 184 H 346 M 410 144 H 430 M 410 156 H 430 M 410 168 H 430 M 410 180 H 430 M 460 176 H 478 M 460 188 H 478',
+            '0.8s',
+            { strokeWidth: 1.1, opacity: 0.6 }
+          )}
+          {/* башенный кран за окном (accent) */}
+          {line(
+            'M 372 204 V 72 M 380 204 V 72 M 372 204 L 380 192 L 372 180 L 380 168 L 372 156 L 380 144 L 372 132 L 380 120 L 372 108 L 380 96 L 372 84 L 380 72',
+            '1.1s',
+            { stroke: RED, strokeWidth: 1.2 }
+          )}
+          {line(
+            'M 322 72 H 470 M 376 72 V 56 M 376 56 L 330 72 M 376 56 L 460 72 M 324 72 V 84 H 340 V 72 M 450 72 V 118 M 442 118 H 458 V 126 H 442 Z',
+            '1.4s',
+            { stroke: RED, strokeWidth: 1.4 }
+          )}
+
+          {/* левый участник — подрядчик */}
+          {person('builder', 1.8)}
+
+          {/* правый участник — заказчик (зеркало) */}
+          <g transform="translate(800 0) scale(-1 1)">{person('client', 3.6)}</g>
+
+          {/* стол: столешница и тумба */}
+          {line('M 270 262 H 530 V 274 H 270 Z', '5.6s', {
+            fill: BG,
+            strokeWidth: 1.8,
+          })}
+          {line('M 296 274 V 358 H 504 V 274', '5.9s', { fill: BG })}
+          {line('M 318 292 H 482 V 340 H 318 Z', '6.2s', {
+            strokeWidth: 1.1,
+            opacity: 0.3,
           })}
 
-          {/* окно со стройкой города */}
-          {line('M 200 36 H 360 V 112 H 200 Z M 280 36 V 112', '1.5s', {
+          {/* чашки */}
+          {line('M 278 262 V 249 H 290 V 262 M 290 252 q 6 0 0 8', '6.4s', {
             strokeWidth: 1.2,
           })}
-          {line(
-            'M 208 112 V 90 H 228 V 112 M 236 112 V 66 H 258 V 112 M 300 112 V 80 H 326 V 112 M 334 112 V 96 H 352 V 112',
-            '1.9s',
-            { strokeWidth: 0.9, opacity: 0.7 }
-          )}
-
-          {/* левый участник: тело, руки, ноги */}
-          {line(
-            'M 150 116 V 170 H 185 V 220 H 200 M 150 128 L 172 150 L 196 147',
-            '2.4s',
-            { strokeWidth: 1.2 }
-          )}
-          {/* голова */}
-          {line('M 134 100 a 16 16 0 1 0 32 0 a 16 16 0 1 0 -32 0', '2.8s', {
-            strokeWidth: 1.2,
-          })}
-          {/* каска (accent) */}
-          {line('M 134 98 A 16 16 0 0 1 166 98 M 129 98 H 171', '3.1s', {
-            stroke: RED,
-            strokeWidth: 1.4,
-          })}
-
-          {/* правый участник */}
-          {line(
-            'M 410 116 V 170 H 375 V 220 H 360 M 410 128 L 388 150 L 364 147',
-            '3.4s',
-            { strokeWidth: 1.2 }
-          )}
-          {line('M 394 100 a 16 16 0 1 0 32 0 a 16 16 0 1 0 -32 0', '3.8s', {
+          {line('M 522 262 V 249 H 510 V 262 M 510 252 q -6 0 0 8', '6.5s', {
             strokeWidth: 1.2,
           })}
 
           {/* чертёж на столе (accent) */}
-          {line('M 226 150 L 246 138 H 334 L 314 150', '4.4s', {
+          {line('M 326 262 L 346 250 H 454 L 474 262', '6.8s', {
             stroke: RED,
-            strokeWidth: 1.35,
+            strokeWidth: 1.9,
           })}
-          {line('M 256 146 H 304 M 268 142 H 316', '4.8s', {
-            stroke: RED,
-            strokeWidth: 0.8,
-            opacity: 0.7,
-          })}
-
-          {/* чашки */}
-          {line('M 212 150 V 142 H 222 V 150', '5.1s', { strokeWidth: 1 })}
-          {line('M 338 150 V 142 H 348 V 150', '5.3s', { strokeWidth: 1 })}
-
-          {/* реплика слева */}
           {line(
-            'M 108 38 H 152 Q 160 38 160 46 V 58 Q 160 66 152 66 H 144 L 138 76 L 134 66 H 108 Q 100 66 100 58 V 46 Q 100 38 108 38 Z',
-            '5.7s',
-            { strokeWidth: 1 }
+            'M 346 256 H 454 M 360 262 L 368 250 M 400 262 V 250 M 440 262 L 432 250',
+            '7.1s',
+            { stroke: RED, strokeWidth: 1, opacity: 0.6 }
           )}
-          {line('M 118 52 h0.1 M 130 52 h0.1 M 142 52 h0.1', '6.2s', {
-            strokeWidth: 3,
-          })}
 
-          {/* ответ справа (accent) */}
+          {/* рукопожатие */}
           {line(
-            'M 452 38 H 408 Q 400 38 400 46 V 58 Q 400 66 408 66 H 416 L 422 76 L 426 66 H 452 Q 460 66 460 58 V 46 Q 460 38 452 38 Z',
-            '6.7s',
-            { stroke: RED, strokeWidth: 1.1 }
+            'M 370 223 C 380 215 392 213 400 216 C 408 213 420 215 430 223 M 374 241 C 386 251 394 251 400 248 C 408 251 416 251 426 241',
+            '7.6s',
+            { strokeWidth: 1.8 }
           )}
-          {line('M 418 52 h0.1 M 430 52 h0.1 M 442 52 h0.1', '7.2s', {
-            stroke: RED,
-            strokeWidth: 3,
-          })}
+          {line(
+            'M 405 219 V 238 M 411 218 V 240 M 417 219 V 239 M 384 224 Q 398 236 410 228',
+            '8.2s',
+            { strokeWidth: 1.2 }
+          )}
         </svg>
       </div>
     </section>
