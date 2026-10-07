@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
 const STAGES = [
-  { n: '01', title: 'Концепция', sub: 'Участок, ТЗ, экономика' },
-  { n: '02', title: 'Проект', sub: 'Документация и инженерия' },
-  { n: '03', title: 'Стройка', sub: 'Каркас, сети, контроль' },
-  { n: '04', title: 'Сдача', sub: 'Ввод «под ключ»' },
+  { n: '01', title: 'Концепция', sub: 'Участок, экономика' },
+  { n: '02', title: 'Проект', sub: 'Изыскания и документация' },
+  { n: '03', title: 'Стройка', sub: 'Каркас, инженерия, отделка, благоустройство' },
+  { n: '04', title: 'Сдача', sub: 'Ввод в эксплуатацию и передача объекта арендатору' },
 ]
 
 /** доли пути, где стоят узлы (0…1) */
@@ -99,7 +99,7 @@ export default function ServiceSketch() {
         Полный цикл
       </p>
       <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 max-w-2xl">
-        От техзадания — до ключей
+        От техзадания — до эксплуатирования объекта
       </h2>
       <p className="text-gray-400 text-sm sm:text-base max-w-lg mb-12 leading-relaxed">
         Четыре этапа, одна команда. Линия не обрывается на стыке подрядчиков.
