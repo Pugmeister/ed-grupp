@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
-const CYCLE = '11s'
+/** Длинный цикл: успевает нарисоваться целиком, потом стирается */
+const CYCLE = '24s'
 
-export default function CraneSketch() {
+const RED = '#FF3B30'
+
+export default function NegotiationSketch() {
   const ref = useRef(null)
   const [active, setActive] = useState(false)
 
@@ -24,21 +27,14 @@ export default function CraneSketch() {
   const sk = (delay) =>
     active
       ? {
-        animation: `crane-draw ${CYCLE} cubic-bezier(0.16, 1, 0.3, 1) infinite`,
+        animation: `talk-draw ${CYCLE} cubic-bezier(0.16, 1, 0.3, 1) infinite`,
         animationDelay: delay,
       }
       : { strokeDashoffset: 1, opacity: 0.2 }
 
-  const sway = active
-    ? {
-      transformOrigin: '400px 58px',
-      animation: 'crane-sway 4s ease-in-out infinite alternate',
-    }
-    : undefined
-
   const line = (d, delay, props = {}) => (
     <path
-      className="ck-line"
+      className="tk-line"
       pathLength="1"
       d={d}
       stroke="#F4F4F0"
@@ -56,20 +52,16 @@ export default function CraneSketch() {
       aria-hidden
     >
       <style>{`
-        @keyframes crane-draw {
-          0%   { stroke-dashoffset: 1; opacity: 0.2; }
-          8%   { opacity: 1; }
-          42%  { stroke-dashoffset: 0; opacity: 1; }
-          68%  { stroke-dashoffset: 0; opacity: 1; }
-          88%  { stroke-dashoffset: 1; opacity: 0.15; }
-          100% { stroke-dashoffset: 1; opacity: 0.15; }
-        }
-        @keyframes crane-sway {
-          from { transform: rotate(-1.6deg); }
-          to   { transform: rotate(1.6deg); }
+        @keyframes talk-draw {
+          0%    { stroke-dashoffset: 1; opacity: 0.2; }
+          2%    { opacity: 1; }
+          12.5% { stroke-dashoffset: 0; opacity: 1; }
+          71%   { stroke-dashoffset: 0; opacity: 1; }
+          83%   { stroke-dashoffset: 1; opacity: 0.15; }
+          100%  { stroke-dashoffset: 1; opacity: 0.15; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .ck-line {
+          .tk-line {
             animation: none !important;
             stroke-dashoffset: 0 !important;
             opacity: 1 !important;
@@ -98,61 +90,98 @@ export default function CraneSketch() {
           viewBox="0 0 560 260"
           className="relative w-full h-full max-h-[300px]"
           fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* земля */}
+          {/* пол */}
           {line('M 24 220 H 536', '0s')}
 
-          {/* основание башни */}
-          {line('M 190 220 V 212 H 234 V 220', '0.4s')}
+          {/* стол: столешница + ножки */}
+          {line('M 180 150 H 380 V 158 H 180 Z', '0.4s', { strokeWidth: 1.2 })}
+          {line('M 206 158 V 220 M 354 158 V 220', '0.7s')}
 
-          {/* мачта */}
-          {line('M 200 212 V 50', '0.8s', { strokeWidth: 1.15 })}
-          {line('M 224 212 V 50', '1s', { strokeWidth: 1.15 })}
+          {/* стулья */}
+          {line('M 132 170 H 168 M 132 170 V 120 M 138 170 V 220 M 164 170 V 220', '1s', {
+            strokeWidth: 1,
+            opacity: 0.7,
+          })}
+          {line('M 428 170 H 392 M 428 170 V 120 M 422 170 V 220 M 396 170 V 220', '1.2s', {
+            strokeWidth: 1,
+            opacity: 0.7,
+          })}
 
-          {/* решётка мачты */}
+          {/* окно со стройкой города */}
+          {line('M 200 36 H 360 V 112 H 200 Z M 280 36 V 112', '1.5s', {
+            strokeWidth: 1.2,
+          })}
           {line(
-            'M 200 212 L 224 188 L 200 164 L 224 140 L 200 116 L 224 92 L 200 68 L 224 50',
-            '1.4s',
-            { strokeWidth: 0.9, opacity: 0.8 }
+            'M 208 112 V 90 H 228 V 112 M 236 112 V 66 H 258 V 112 M 300 112 V 80 H 326 V 112 M 334 112 V 96 H 352 V 112',
+            '1.9s',
+            { strokeWidth: 0.9, opacity: 0.7 }
           )}
 
-          {/* оголовок + растяжки (accent) */}
-          {line('M 212 50 V 20', '2s', { stroke: '#FF3B30', strokeWidth: 1.3 })}
-          {line('M 212 20 L 92 50', '2.3s', { stroke: '#FF3B30', strokeWidth: 1.2 })}
-          {line('M 212 20 L 440 50', '2.6s', { stroke: '#FF3B30', strokeWidth: 1.2 })}
-
-          {/* стрела и контрстрела */}
-          {line('M 92 50 H 470', '3s', { strokeWidth: 1.2 })}
-          {line('M 224 58 H 470', '3.3s', { strokeWidth: 1 })}
+          {/* левый участник: тело, руки, ноги */}
           {line(
-            'M 224 58 L 252 50 L 280 58 L 308 50 L 336 58 L 364 50 L 392 58 L 420 50 L 448 58 L 470 50',
-            '3.6s',
-            { strokeWidth: 0.9, opacity: 0.8 }
+            'M 150 116 V 170 H 185 V 220 H 200 M 150 128 L 172 150 L 196 147',
+            '2.4s',
+            { strokeWidth: 1.2 }
           )}
+          {/* голова */}
+          {line('M 134 100 a 16 16 0 1 0 32 0 a 16 16 0 1 0 -32 0', '2.8s', {
+            strokeWidth: 1.2,
+          })}
+          {/* каска (accent) */}
+          {line('M 134 98 A 16 16 0 0 1 166 98 M 129 98 H 171', '3.1s', {
+            stroke: RED,
+            strokeWidth: 1.4,
+          })}
 
-          {/* противовес */}
-          {line('M 94 50 V 74 H 130 V 50', '4s')}
+          {/* правый участник */}
+          {line(
+            'M 410 116 V 170 H 375 V 220 H 360 M 410 128 L 388 150 L 364 147',
+            '3.4s',
+            { strokeWidth: 1.2 }
+          )}
+          {line('M 394 100 a 16 16 0 1 0 32 0 a 16 16 0 1 0 -32 0', '3.8s', {
+            strokeWidth: 1.2,
+          })}
 
-          {/* тележка, трос, крюк, груз — покачиваются */}
-          <g style={sway}>
-            {line('M 392 58 H 408 V 64 H 392 Z', '4.3s', { strokeWidth: 1 })}
-            {line('M 400 64 V 150', '4.5s', { strokeWidth: 0.9 })}
-            {line('M 400 150 L 378 170 M 400 150 L 422 170', '4.8s', {
-              strokeWidth: 0.9,
-            })}
-            {line('M 376 170 H 424 V 200 H 376 Z', '5s', {
-              stroke: '#FF3B30',
-              strokeWidth: 1.35,
-            })}
-          </g>
+          {/* чертёж на столе (accent) */}
+          {line('M 226 150 L 246 138 H 334 L 314 150', '4.4s', {
+            stroke: RED,
+            strokeWidth: 1.35,
+          })}
+          {line('M 256 146 H 304 M 268 142 H 316', '4.8s', {
+            stroke: RED,
+            strokeWidth: 0.8,
+            opacity: 0.7,
+          })}
 
-          {/* строящееся здание справа */}
-          {line('M 456 220 V 150', '5.4s', { strokeWidth: 1 })}
-          {line('M 488 220 V 150', '5.6s', { strokeWidth: 1 })}
-          {line('M 520 220 V 150', '5.8s', { strokeWidth: 1 })}
-          {line('M 448 190 H 528', '6.1s', { strokeWidth: 1 })}
-          {line('M 448 160 H 528', '6.4s', { strokeWidth: 1 })}
+          {/* чашки */}
+          {line('M 212 150 V 142 H 222 V 150', '5.1s', { strokeWidth: 1 })}
+          {line('M 338 150 V 142 H 348 V 150', '5.3s', { strokeWidth: 1 })}
+
+          {/* реплика слева */}
+          {line(
+            'M 108 38 H 152 Q 160 38 160 46 V 58 Q 160 66 152 66 H 144 L 138 76 L 134 66 H 108 Q 100 66 100 58 V 46 Q 100 38 108 38 Z',
+            '5.7s',
+            { strokeWidth: 1 }
+          )}
+          {line('M 118 52 h0.1 M 130 52 h0.1 M 142 52 h0.1', '6.2s', {
+            strokeWidth: 3,
+          })}
+
+          {/* ответ справа (accent) */}
+          {line(
+            'M 452 38 H 408 Q 400 38 400 46 V 58 Q 400 66 408 66 H 416 L 422 76 L 426 66 H 452 Q 460 66 460 58 V 46 Q 460 38 452 38 Z',
+            '6.7s',
+            { stroke: RED, strokeWidth: 1.1 }
+          )}
+          {line('M 418 52 h0.1 M 430 52 h0.1 M 442 52 h0.1', '7.2s', {
+            stroke: RED,
+            strokeWidth: 3,
+          })}
         </svg>
       </div>
     </section>
