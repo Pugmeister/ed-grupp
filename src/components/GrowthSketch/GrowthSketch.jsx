@@ -79,7 +79,7 @@ export default function GrowthSketch() {
 
   const done = progress >= 0.995
   const years = Math.round(20 * progress)
-  const area = done ? TARGET_AREA : (TARGET_AREA * progress).toFixed(1)
+  const area = (done ? TARGET_AREA : TARGET_AREA * progress).toFixed(1)
 
   return (
     <section
