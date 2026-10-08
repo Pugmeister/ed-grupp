@@ -91,8 +91,6 @@ export const projects = [
       img('images/projects/sklad-dorozhnyj-rostov/07.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/08.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/09.jpg'),
-      img('images/projects/sklad-dorozhnyj-rostov/10.jpg'),
-      img('images/projects/sklad-dorozhnyj-rostov/11.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/12.jpg'),
       img('images/projects/sklad-dorozhnyj-rostov/13.jpg'),
     ],
