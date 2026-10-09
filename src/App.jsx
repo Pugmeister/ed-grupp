@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home/Home'
 import Projects from './pages/Projects/Projects'
 import Project from './pages/Project/Project'
@@ -16,7 +15,6 @@ import Privacy from "./pages/Privacy/Privacy.jsx";
 function App() {
   return (
     <>
-      <CustomCursor />
       <ScrollToTop />
       <Header />
       <main>

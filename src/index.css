@@ -70,12 +70,6 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
-/* Курсор только на десктопе с мышью */
-@media (min-width: 901px) and (pointer: fine) {
-  body { cursor: none; }
-  a, button { cursor: none; }
-}
-
 .custom-cursor {
   width: 20px;
   height: 20px;
@@ -136,13 +130,6 @@ body {
   font-size: clamp(2.5rem, 8vw, 5.5rem);
 }
 
-/* ========== HORIZONTAL PROCESS ========== */
-/* Начиная с lg (>=1024px) секция "пинится" (position: sticky) и трек двигается
-   через JS-transform, синхронизированный с вертикальным скроллом — см.
-   updateHorizontal() в Home.jsx. Ниже 1024px эта механика полностью
-   отключается в JS (там же), а здесь трек превращается в обычный
-   горизонтальный список со scroll-snap — см. блок @media (max-width: 1023px)
-   ниже, он переопределяет .horizontal-wrapper/.horizontal-sticky/.horizontal-track. */
 .horizontal-wrapper {
   height: 350vh;
   position: relative;
