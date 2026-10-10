@@ -162,16 +162,22 @@ export default function Home() {
             src={img('images/office.jpg')}
             className="absolute inset-0 w-full h-full object-cover animate-fade-1"
             alt="Object 1"
+            fetchPriority="high"
+            decoding="async"
           />
           <img
             src={img('images/commercial.jpg')}
             className="absolute inset-0 w-full h-full object-cover animate-fade-2"
             alt="Object 2"
+            fetchPriority="low"
+            decoding="async"
           />
           <img
             src={img('images/logistics.jpg')}
             className="absolute inset-0 w-full h-full object-cover animate-fade-3"
             alt="Object 3"
+            fetchPriority="low"
+            decoding="async"
           />
           {/* Было bg-ink/40 — мало для читаемости белого текста поверх фото */}
           <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/45 to-ink/70" />
@@ -237,6 +243,8 @@ export default function Home() {
                 src={img('images/commercial.jpg')}
                 className="w-full h-full object-cover"
                 alt="Коммерция"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute -top-8 -right-8 sm:-top-10 sm:-right-10 w-40 h-40 sm:w-60 sm:h-60 bg-accent/10 z-[-1] rounded-full blur-3xl" />
@@ -266,6 +274,8 @@ export default function Home() {
             className="w-full h-full object-cover opacity-50 parallax-img"
             data-speed="0.05"
             alt="Жильё"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
         </div>
@@ -308,6 +318,8 @@ export default function Home() {
                 src={img('images/projects/azerbaijan-complex/01.jpg')}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 alt="Промышленное строительство"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-40 sm:h-40 border border-accent z-[-1]" />
@@ -365,6 +377,8 @@ export default function Home() {
                   src={card.img}
                   className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                   alt={card.title}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute bottom-0 left-0 p-5 sm:p-6 md:p-8 w-full bg-gradient-to-t from-black via-black/70 to-transparent">
                   <span className="process-num font-display font-bold text-accent/50 absolute -top-12 sm:-top-16 md:-top-20 left-5 sm:left-6 md:left-8">
@@ -430,11 +444,6 @@ export default function Home() {
       {/* MEGA CTA */}
       <section className="min-h-[100svh] w-full flex flex-col items-center justify-center bg-paper text-ink mega-cta relative overflow-hidden group py-20 px-5 sm:px-6">
         <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700">
-          <img
-            src="https://images.unsplash.com/photo-1504307651254-35680f356fd0?q=80&w=2070&auto=format&fit=crop"
-            className="w-full h-full object-cover grayscale"
-            alt="Background"
-          />
         </div>
 
         <div className="relative z-10 text-center max-w-6xl mx-auto">
