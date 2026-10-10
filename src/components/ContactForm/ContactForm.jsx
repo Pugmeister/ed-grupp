@@ -5,7 +5,6 @@ const ACCEPT =
   '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.zip,.rar,application/pdf'
 const MAX_MB = 15
 
-/** Маска РФ: +7 (999) 999-99-99; 8 → 7 */
 function formatPhone(input) {
   let digits = String(input).replace(/\D/g, '')
 
@@ -29,10 +28,6 @@ function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
 }
 
-/**
- * Отправка на свой PHP (VITE_FORM_ENDPOINT → .../send.php)
- * Файл уходит полем upload (multipart).
- */
 export default function ContactForm({
                                       title = 'Есть техзадание?',
                                       className = '',

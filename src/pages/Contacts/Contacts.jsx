@@ -60,7 +60,6 @@ export default function Contacts() {
             <div>
               <h2 className="text-xs tracking-[0.2em] uppercase text-gray-500 mb-3">Реквизиты</h2>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Уточняются у заказчика
                 {/* Когда пришлют: ИНН, ОГРН, юр. название */}
               </p>
             </div>

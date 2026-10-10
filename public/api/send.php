@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 
-$configPath = __DIR__ . '/config.php';
+// Конфиг лежит в корне хостинга, выше публичной папки www.edgrupp.ru
+$configPath = __DIR__ . '/../../mail-config.php';
 if (!is_file($configPath)) {
   http_response_code(500);
-  echo json_encode(['error' => 'config.php not found']);
+  echo json_encode(['error' => 'mail-config.php not found']);
   exit;
 }
 
@@ -16,8 +17,6 @@ $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($origin && in_array($origin, $config['allowed_origins'], true)) {
   header("Access-Control-Allow-Origin: $origin");
   header('Access-Control-Allow-Credentials: true');
-} else {
-  header('Access-Control-Allow-Origin: *');
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');
@@ -30,6 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   http_response_code(405);
   echo json_encode(['error' => 'Method not allowed']);
+  exit;
+}
+
+// Honeypot: скрытое поле "website" заполняют только боты
+if (!empty($_POST['website'])) {
+  echo json_encode(['ok' => true]);
   exit;
 }
 
@@ -72,6 +77,13 @@ if ($upload && ($upload['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) 
   if (($upload['size'] ?? 0) > $maxBytes) {
     http_response_code(400);
     echo json_encode(['error' => 'Файл слишком большой']);
+    exit;
+  }
+  $ext = strtolower(pathinfo((string)($upload['name'] ?? ''), PATHINFO_EXTENSION));
+  $allowedExt = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'jpg', 'jpeg', 'png', 'zip', 'rar', 'dwg'];
+  if (!in_array($ext, $allowedExt, true)) {
+    http_response_code(422);
+    echo json_encode(['error' => 'Недопустимый тип файла']);
     exit;
   }
   $fileInfo = $upload;
