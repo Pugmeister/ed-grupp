@@ -14,7 +14,6 @@ const X0 = 60
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 
-// высота «здания» растёт по кривой — как накопленный объём
 const bars = Array.from({ length: N }, (_, i) => ({
   x: X0 + i * (BAR_W + GAP),
   max: 22 + 150 * Math.pow(i / (N - 1), 1.7),
@@ -109,7 +108,6 @@ export default function GrowthSketch() {
         />
 
         <div className="relative max-w-4xl mx-auto">
-          {/* счётчики */}
           <div className="flex justify-between sm:justify-start sm:gap-16 mb-6">
             <div>
               <div className="font-display text-4xl sm:text-5xl font-bold text-accent tabular-nums">
@@ -132,7 +130,6 @@ export default function GrowthSketch() {
           </div>
 
           <svg viewBox="0 0 800 220" className="w-full h-auto" fill="none">
-            {/* земля */}
             <line
               x1="40"
               y1={BASE_Y}
